@@ -1,0 +1,52 @@
+#OUProfileContent {
+	.profile-menu {
+		background: white;
+		box-sizing: border-box;
+		margin-bottom: 15px;
+		// border-radius: 10px;
+		display: flex;
+		justify-content: space-between;
+
+		.active {
+			border-bottom: 3px solid #1677ff;
+			color: #1677ff !important;
+		}
+
+		.left-menu {
+			a {
+				display: inline-block;
+				padding: 20px 15px;
+				color: rgb(87, 87, 87);
+				font-weight: 500;
+			}
+		}
+
+		///////
+		.right-menu {
+			width: 35%;
+
+			.interaction {
+				margin-top: 10px;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				.title {
+					// font-size: 16px;
+					font-weight: 500;
+				}
+
+				.count {
+					margin-top: 5px;
+					text-align: center;
+					font-size: 16px;
+					color: #fa6342;
+				}
+			}
+		}
+	}
+
+	.content {
+		// background: white;
+		border-radius: 10px;
+	}
+}

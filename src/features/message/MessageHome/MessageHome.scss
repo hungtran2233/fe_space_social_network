@@ -1,0 +1,302 @@
+#MessageHome {
+	.custom-sider {
+		::-webkit-scrollbar {
+			width: 6px;
+		}
+
+		::-webkit-scrollbar-track {
+			// background-color: rgb(255, 253, 253);
+			background-color: #001529;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background-color: rgb(186, 186, 188);
+			border-radius: 5px;
+		}
+		.top-sider {
+			height: 80px;
+			color: white;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+
+			.search-box {
+				display: inline-block;
+			}
+
+			.add-button {
+				margin-left: 20px;
+				padding: 4px;
+				border-radius: 5px;
+				&:hover {
+					background: rgb(165, 165, 165);
+					cursor: pointer;
+					transition-duration: 0.5s;
+				}
+			}
+		}
+
+		.custom-tabs {
+		}
+
+		.bot-sider {
+			height: 5px;
+		}
+
+		.menu-sider {
+			height: 65vh;
+			min-height: 65vh;
+			overflow-y: auto;
+		}
+	}
+
+	//
+	.right-layout-content {
+	}
+
+	// tùy chỉnh item trong menu
+	.ant-menu-item {
+		height: 60px;
+		margin-bottom: 15px;
+
+		.item-group-header {
+			width: 25%;
+		}
+
+		img {
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+			object-fit: cover;
+			border-radius: 50%;
+		}
+
+		.ant-menu-title-content {
+			padding-left: 8px;
+			font-size: 16px;
+		}
+	}
+
+	.is-online-status {
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 12px;
+			height: 12px;
+			background-color: rgb(8, 193, 8);
+			border-radius: 50%;
+			border: 1px solid white;
+			top: 75%;
+			left: 20%;
+			transform: translateY(-50%);
+		}
+	}
+
+	//////////////
+	///
+	.layout-content-custom {
+		height: 92vh;
+		min-height: 92vh;
+
+		// Header cho cuộc trò chuyện cá nhân
+		.personal-header {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			height: 100%;
+
+			//
+
+			.user-avatar {
+				margin-left: 40px;
+				width: 45px;
+				height: 45px;
+				position: relative;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					border-radius: 50%;
+				}
+			}
+
+			.user-info {
+				height: 100%;
+				margin-left: 15px;
+				line-height: normal;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+
+				.user-full-name {
+					font-weight: bold;
+					font-size: 16px;
+				}
+
+				.user-status {
+					font-weight: 100;
+				}
+			}
+
+			//
+			.is-online-header {
+				position: relative;
+				&::before {
+					content: "";
+					position: absolute;
+					width: 12px;
+					height: 12px;
+					background-color: rgb(8, 193, 8);
+					border-radius: 50%;
+					border: 1px solid white;
+					top: 80%;
+					left: 60%;
+					transform: translateY(-50%);
+				}
+			}
+		}
+
+		// Header cho nhóm
+		///////////
+	}
+
+	//
+	//
+}
+
+//modal
+// Modal conversation
+.modal-content {
+	.modal-user-list {
+		margin: 15px 0;
+		display: flex;
+		justify-content: space-between;
+
+		.left {
+			width: 50%;
+			height: 45vh;
+			min-height: 45vh;
+			overflow-y: auto;
+
+			.modal-user-item {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				margin-bottom: 10px;
+				cursor: pointer;
+
+				span {
+					display: inline-block;
+				}
+
+				.tick-icon {
+					margin-right: 10px;
+					.check-box {
+						border-radius: 50%;
+					}
+				}
+
+				.user-avatar {
+					width: 35px;
+					height: 35px;
+
+					img {
+						width: 100%;
+						height: 100%;
+						border-radius: 50%;
+						border: 1px solid rgb(216, 216, 216);
+						object-fit: cover;
+					}
+				}
+
+				.user-full-name {
+					margin-left: 10px;
+				}
+			}
+		}
+
+		//
+		.right {
+			.selected-content {
+				border: 1px solid rgb(216, 214, 214);
+				border-radius: 5px;
+				padding: 5px 20px;
+				height: 45vh;
+				min-height: 45vh;
+				overflow-y: auto;
+
+				.top {
+					margin-bottom: 10px;
+					color: rgb(69, 69, 255);
+					.top-left {
+						font-weight: bold;
+					}
+					.top-right {
+						margin-left: 10px;
+						padding: 0 5px;
+						background: #e5efff;
+						border-radius: 2px;
+						font-weight: 600;
+					}
+				}
+
+				li {
+					list-style-type: none;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					padding: 5px 0;
+				}
+				span {
+					display: inline-block;
+				}
+
+				.box-item {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					margin-bottom: 8px;
+					padding: 8px;
+					width: 120px;
+					background: #e5efff;
+					border-radius: 20px;
+
+					.user-avatar {
+						width: 25px;
+						height: 25px;
+						// min-width: 25px;
+
+						img {
+							width: 100%;
+							height: 100%;
+							object-fit: cover;
+							border-radius: 50%;
+							border: 1px solid gray;
+						}
+					}
+
+					.user-full-name {
+						margin-left: 10px;
+						color: rgb(69, 69, 255);
+					}
+
+					.remove-item {
+						margin-left: 20px;
+						color: blue;
+						font-size: 16px;
+						cursor: pointer;
+					}
+
+					&:hover {
+						background-color: #bdd5fb;
+					}
+				}
+			}
+		}
+	}
+}
+
+//

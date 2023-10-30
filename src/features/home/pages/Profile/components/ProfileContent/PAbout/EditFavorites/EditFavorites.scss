@@ -1,0 +1,24 @@
+.edit-favorites {
+	display: flex;
+	align-items: center;
+	padding: 40px 30px;
+
+	.favorites-icon {
+	}
+
+	.label {
+		margin-left: 20px;
+	}
+
+	.text-content {
+		margin-left: 50px;
+		width: 250px;
+		padding: 5px 15px;
+		border: 1px solid rgb(207, 206, 206);
+		border-radius: 10px;
+	}
+
+	.edit-icon {
+		margin-left: 20px;
+	}
+}

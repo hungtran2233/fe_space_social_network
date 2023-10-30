@@ -1,0 +1,18 @@
+.title-theme-public {
+	font-size: 16px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+
+	.left {
+		width: 3%;
+		height: 25px;
+		border-left: 3px solid orange;
+	}
+	.text {
+		width: 97%;
+		margin-right: 15px;
+		border-bottom: 1px solid rgb(212, 212, 212);
+		padding: 10px 0;
+	}
+}

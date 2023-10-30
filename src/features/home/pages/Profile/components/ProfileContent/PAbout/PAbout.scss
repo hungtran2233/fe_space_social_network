@@ -1,0 +1,47 @@
+#AboutProfile {
+	.menu-item {
+		padding: 25px 30px;
+		div {
+			padding: 7px 0;
+		}
+		svg {
+			transform: translateY(5px);
+		}
+		.label {
+			margin-left: 15px;
+			display: inline-block;
+			width: 130px;
+		}
+
+		.text-content {
+			display: inline-block;
+			width: 250px;
+			padding: 5px 15px;
+			border: 1px solid rgb(207, 206, 206);
+			border-radius: 10px;
+		}
+
+		.container-privacy {
+			display: inline-block;
+			margin-left: 50px;
+		}
+
+		.container-option {
+			display: inline-block;
+			margin-left: 20px;
+		}
+
+		.user-link {
+			margin-top: 20px;
+			.label {
+				color: gray;
+				font-weight: 500;
+			}
+			.text-content {
+				width: 450px;
+			}
+		}
+	}
+
+	// end--  menu-item
+}

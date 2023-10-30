@@ -1,0 +1,14 @@
+#PHome {
+	width: 100%;
+	display: flex;
+	// padding-top: 8px;
+
+	.col-info {
+		width: 40%;
+	}
+
+	.post-container {
+		width: 60%;
+		margin-right: 15px;
+	}
+}

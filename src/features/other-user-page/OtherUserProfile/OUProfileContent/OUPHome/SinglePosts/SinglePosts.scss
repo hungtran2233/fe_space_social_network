@@ -1,0 +1,342 @@
+.single-posts {
+	border: 1px solid rgb(220, 219, 219);
+	background: white;
+	padding: 15px;
+	margin-bottom: 15px;
+	border-radius: 12px;
+
+	// header
+	.header {
+		display: flex;
+
+		.avatar {
+			width: 10%;
+		}
+		.post-info {
+			width: 80%;
+			padding-left: 5px;
+
+			.full-name {
+				font-size: 16px;
+				font-weight: 600;
+				line-height: 16px;
+			}
+
+			.more-info {
+				.time {
+					font-size: 11px;
+				}
+				.privacy-icon {
+					margin-left: 15px;
+					span {
+						cursor: pointer;
+						svg {
+							transform: translateY(3px);
+						}
+					}
+				}
+			}
+		}
+		.btn-custom {
+			width: 10%;
+			svg {
+				transform: translateX(25px);
+				cursor: pointer;
+			}
+		}
+	}
+
+	// -- end header
+
+	// center
+	.center {
+		padding: 15px 0;
+
+		.p-text {
+			margin-bottom: 15px;
+			font-size: 15px;
+		}
+
+		.p-image-container {
+			/* Kiểu mặc định cho .img-container */
+			.img-container {
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+			/* Kiểu cho .img-container khi có 1 ảnh */
+			.single-img {
+				width: 100%;
+				height: 300px;
+
+				.img-item {
+					width: 100%;
+					height: 100%;
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						border-radius: 8px;
+					}
+				}
+			}
+
+			/* Kiểu cho .img-container khi có 2 ảnh */
+			.double-img {
+				.img-item {
+					width: 50%;
+					height: 200px;
+					padding: 2px;
+					box-sizing: border-box;
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						border-radius: 8px;
+					}
+				}
+			}
+
+			/* Kiểu cho .img-container khi có 3 ảnh */
+			.triple-img {
+				.img-item {
+					width: 50%;
+					height: 200px;
+					padding: 2px;
+					box-sizing: border-box;
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						border-radius: 8px;
+					}
+				}
+
+				.img-item:nth-child(3) {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	// -- end center
+
+	// footer
+	.footer {
+		.statistics-bar {
+			display: flex;
+			justify-content: space-between;
+
+			// left-bar
+			.left-bar {
+				.like-icon {
+					display: inline-block;
+					width: 25px;
+					height: 25px;
+					background: #1a7bff;
+					text-align: center;
+					border-radius: 50%;
+
+					svg {
+						transform: translateY(3px);
+					}
+				}
+
+				.like-text {
+					margin-left: 8px;
+					font-size: 14px;
+					font-weight: 500;
+				}
+			}
+
+			// -- end left-bar
+			.right-bar {
+				cursor: pointer;
+				&:hover {
+					opacity: 0.5;
+				}
+				.comment-icon {
+					display: inline-block;
+					width: 30px;
+					height: 30px;
+
+					text-align: center;
+					border-radius: 50%;
+
+					svg {
+						transform: translateY(3px);
+					}
+				}
+
+				.comment-text {
+					font-weight: 500;
+				}
+			}
+		}
+
+		// -- end statistics-bar
+		.action-bar {
+			margin-top: 10px;
+			border-top: 1px solid rgb(200, 199, 199);
+			border-bottom: 1px solid rgb(200, 199, 199);
+			display: flex;
+			font-weight: 500;
+
+			.btn-like {
+				width: calc(100% / 3);
+				padding: 5px 0;
+				margin: 5px;
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+				transition: 0.3s;
+				border-radius: 5px;
+				&:hover {
+					background: rgb(236, 235, 235);
+				}
+
+				.like-icon {
+					svg {
+						transform: translateY(3px);
+						margin-right: 5px;
+					}
+				}
+			}
+
+			.btn-comment {
+				width: calc(100% / 3);
+				padding: 5px 0;
+				margin: 5px;
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+				transition: 0.3s;
+				border-radius: 5px;
+				&:hover {
+					background: rgb(236, 235, 235);
+				}
+
+				.comment-icon {
+					svg {
+						transform: translateY(3px);
+						margin-right: 5px;
+					}
+				}
+			}
+
+			.btn-share {
+				width: calc(100% / 3);
+				padding: 5px 0;
+				margin: 5px;
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+				transition: 0.3s;
+				border-radius: 5px;
+				&:hover {
+					background: rgb(236, 235, 235);
+				}
+
+				.share-icon {
+					svg {
+						transform: translateY(3px);
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+		// --end action bar
+
+		.all-comment {
+			padding: 15px 0;
+			.comment-item {
+				margin-bottom: 15px;
+				.top-item {
+					display: flex;
+
+					.user-avatar {
+					}
+
+					.content {
+						// width: 70%;
+						margin-left: 10px;
+						padding: 5px 30px 10px 12px;
+
+						background: #f0f2f5;
+						border-radius: 15px;
+
+						.user-full-name {
+							font-size: 15px;
+							font-weight: 500;
+						}
+
+						.text {
+							margin-top: 2px;
+						}
+					}
+				}
+
+				.add-action {
+					display: flex;
+					margin-left: 50px;
+					margin-top: 3px;
+
+					div {
+						font-size: 12px;
+						font-weight: 500;
+					}
+
+					.time {
+						margin-left: 20px;
+					}
+				}
+			}
+		}
+		// -- end all-comment
+
+		.comment-bar {
+			display: flex;
+			align-items: center;
+			.my-avatar-comment {
+				width: 10%;
+			}
+			.text-bar {
+				width: 90%;
+			}
+		}
+	}
+	// -- end footer
+}
+
+// css nút like khi mình đã nhấn
+.liked-status {
+	color: blue;
+	span {
+		svg {
+			color: blue;
+		}
+	}
+}
+
+// content-custom-post
+.content-custom-post {
+	.option-item {
+		padding: 10px 5px 10px 0;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: 0.3s;
+		&:hover {
+			background: rgb(238, 237, 237);
+		}
+
+		span {
+			margin-left: 10px;
+		}
+	}
+}
