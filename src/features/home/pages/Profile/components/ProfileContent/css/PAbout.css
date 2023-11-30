@@ -1,0 +1,39 @@
+#AboutProfile .menu-item {
+  padding: 25px 30px;
+}
+#AboutProfile .menu-item div {
+  padding: 7px 0;
+}
+#AboutProfile .menu-item svg {
+  transform: translateY(5px);
+}
+#AboutProfile .menu-item .label {
+  margin-left: 15px;
+  display: inline-block;
+  width: 130px;
+}
+#AboutProfile .menu-item .text-content {
+  display: inline-block;
+  width: 250px;
+  padding: 5px 15px;
+  border: 1px solid rgb(207, 206, 206);
+  border-radius: 10px;
+}
+#AboutProfile .menu-item .container-privacy {
+  display: inline-block;
+  margin-left: 50px;
+}
+#AboutProfile .menu-item .container-option {
+  display: inline-block;
+  margin-left: 20px;
+}
+#AboutProfile .menu-item .user-link {
+  margin-top: 20px;
+}
+#AboutProfile .menu-item .user-link .label {
+  color: gray;
+  font-weight: 500;
+}
+#AboutProfile .menu-item .user-link .text-content {
+  width: 450px;
+}/*# sourceMappingURL=PAbout.css.map */

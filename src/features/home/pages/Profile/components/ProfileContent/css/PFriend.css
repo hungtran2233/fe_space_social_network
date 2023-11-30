@@ -1,0 +1,89 @@
+#PFriend {
+  padding: 15px;
+  background-color: white;
+}
+#PFriend .friend-top {
+  margin-bottom: 30px;
+}
+#PFriend .friend-top .title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+#PFriend .friend-top .title span:nth-child(2) {
+  margin-left: 10px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  background-color: #8661fd;
+  border-radius: 50%;
+  color: white;
+  font-size: 15px;
+}
+#PFriend .friend-top .tool-bar {
+  display: flex;
+}
+#PFriend .friend-top .tool-bar .find-bar {
+  width: 40%;
+}
+#PFriend .friend-top .tool-bar .sort-bar {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+#PFriend .friend-top .tool-bar .filter-bar {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
+#PFriend .friend-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+#PFriend .friend-content .friend-item {
+  width: calc(50% - 5px);
+  border: 1px solid rgb(199, 198, 198);
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+#PFriend .friend-content .friend-item .info {
+  width: 75%;
+  display: flex;
+  cursor: pointer;
+}
+#PFriend .friend-content .friend-item .info:hover {
+  color: rgb(82, 82, 252);
+}
+#PFriend .friend-content .friend-item .info .avatar {
+  width: 30%;
+}
+#PFriend .friend-content .friend-item .info .avatar img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 1px solid rgb(201, 200, 200);
+}
+#PFriend .friend-content .friend-item .info .full-name {
+  width: 70%;
+  margin: 0 15px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+#PFriend .friend-content .friend-item .option {
+  width: 25%;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+#PFriend .friend-content .friend-item .option:hover span {
+  background: rgb(239, 239, 239);
+  border-radius: 3px;
+}/*# sourceMappingURL=PFriend.css.map */

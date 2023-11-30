@@ -1,0 +1,18 @@
+#RightSidebar {
+  padding: 20px 40px;
+}
+#RightSidebar .weather-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+#RightSidebar .birthday-container {
+  margin-top: 15px;
+}
+#RightSidebar .birthday-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}/*# sourceMappingURL=RightSidebar.css.map */

@@ -1,0 +1,16 @@
+.edit-age svg {
+  cursor: pointer;
+}
+
+.modal-edit-age {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.modal-edit-age .label {
+  width: 20%;
+}
+.modal-edit-age .value-option {
+  width: 50%;
+}/*# sourceMappingURL=EditAge.css.map */

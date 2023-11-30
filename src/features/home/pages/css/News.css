@@ -1,0 +1,118 @@
+#News {
+  display: flex;
+}
+#News .create-news {
+  border: 1px solid rgb(186, 185, 185);
+  width: 20%;
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer;
+}
+#News .create-news:hover img {
+  transform: scale(1.1);
+}
+#News .create-news .img-add-news {
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+#News .create-news .img-add-news img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+#News .create-news .btn-add-news {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  z-index: 99;
+  transform: translate(-50%, 0);
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+#News .create-news .text-add-news {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 12px;
+  font-weight: 500;
+}
+#News .all-news {
+  width: 80%;
+  position: relative;
+}
+#News .all-news .custom-prev-arrow {
+  left: 3%;
+  z-index: 60;
+}
+#News .all-news .custom-prev-arrow::before {
+  font-size: 30px;
+}
+#News .all-news .custom-next-arrow {
+  right: 3%;
+  z-index: 60;
+}
+#News .all-news .custom-next-arrow::before {
+  font-size: 30px;
+}
+#News .all-news .card {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+#News .all-news .card .card-img {
+  box-sizing: border-box;
+  border: 1px solid rgb(194, 194, 194);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 100%;
+  border-radius: 15px;
+  z-index: 10;
+  overflow: hidden;
+  cursor: pointer;
+}
+#News .all-news .card .card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+#News .all-news .card .card-img img:hover {
+  transform: scale(1.1);
+}
+#News .all-news .card .card-avatar {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgb(102, 119, 248);
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 100;
+}
+#News .all-news .card .card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#News .all-news .card .card-full-name {
+  position: absolute;
+  top: 80%;
+  left: 20%;
+  z-index: 20;
+  font-weight: bold;
+  color: white;
+}/*# sourceMappingURL=News.css.map */

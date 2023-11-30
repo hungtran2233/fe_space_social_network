@@ -1,0 +1,18 @@
+.edit-work {
+  display: flex;
+  align-items: center;
+  padding: 40px 30px;
+}
+.edit-work .label {
+  margin-left: 20px;
+}
+.edit-work .text-content {
+  margin-left: 50px;
+  width: 250px;
+  padding: 5px 15px;
+  border: 1px solid rgb(207, 206, 206);
+  border-radius: 10px;
+}
+.edit-work .edit-icon {
+  margin-left: 20px;
+}/*# sourceMappingURL=EditWork.css.map */

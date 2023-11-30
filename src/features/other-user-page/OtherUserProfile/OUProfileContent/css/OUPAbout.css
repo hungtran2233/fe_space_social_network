@@ -1,0 +1,39 @@
+#OUPAbout .menu-item {
+  padding: 25px 30px;
+}
+#OUPAbout .menu-item div {
+  padding: 7px 0;
+}
+#OUPAbout .menu-item svg {
+  transform: translateY(5px);
+}
+#OUPAbout .menu-item .label {
+  margin-left: 15px;
+  display: inline-block;
+  width: 130px;
+}
+#OUPAbout .menu-item .text-content {
+  display: inline-block;
+  width: 250px;
+  padding: 5px 15px;
+  border: 1px solid rgb(207, 206, 206);
+  border-radius: 10px;
+}
+#OUPAbout .menu-item .container-privacy {
+  display: inline-block;
+  margin-left: 50px;
+}
+#OUPAbout .menu-item .container-option {
+  display: inline-block;
+  margin-left: 20px;
+}
+#OUPAbout .menu-item .user-link {
+  margin-top: 20px;
+}
+#OUPAbout .menu-item .user-link .label {
+  color: gray;
+  font-weight: 500;
+}
+#OUPAbout .menu-item .user-link .text-content {
+  width: 450px;
+}/*# sourceMappingURL=OUPAbout.css.map */

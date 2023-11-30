@@ -1,0 +1,96 @@
+@charset "UTF-8";
+.modal-edit-post {
+  border: 1px solid rgb(220, 219, 219);
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+}
+.modal-edit-post .header {
+  display: flex;
+}
+.modal-edit-post .header .avatar {
+  width: 10%;
+}
+.modal-edit-post .header .post-info {
+  width: 80%;
+  padding-left: 5px;
+}
+.modal-edit-post .header .post-info .full-name {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+}
+.modal-edit-post .header .post-info .more-info .time {
+  font-size: 11px;
+}
+.modal-edit-post .header .post-info .more-info .privacy-icon {
+  margin-left: 15px;
+}
+.modal-edit-post .header .post-info .more-info .privacy-icon span {
+  cursor: pointer;
+}
+.modal-edit-post .header .post-info .more-info .privacy-icon span svg {
+  transform: translateY(3px);
+}
+.modal-edit-post .header .btn-custom {
+  width: 10%;
+}
+.modal-edit-post .header .btn-custom svg {
+  transform: translateX(25px);
+  cursor: pointer;
+}
+.modal-edit-post .center {
+  padding: 15px 0;
+}
+.modal-edit-post .center .p-text {
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+.modal-edit-post .center .p-image-container {
+  /* Kiểu mặc định cho .img-container */
+  /* Kiểu cho .img-container khi có 1 ảnh */
+  /* Kiểu cho .img-container khi có 2 ảnh */
+  /* Kiểu cho .img-container khi có 3 ảnh */
+}
+.modal-edit-post .center .p-image-container .img-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.modal-edit-post .center .p-image-container .single-img {
+  width: 100%;
+  height: 300px;
+}
+.modal-edit-post .center .p-image-container .single-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.modal-edit-post .center .p-image-container .double-img .img-item {
+  width: 50%;
+  height: 200px;
+  padding: 2px;
+  box-sizing: border-box;
+}
+.modal-edit-post .center .p-image-container .double-img .img-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.modal-edit-post .center .p-image-container .triple-img .img-item {
+  width: 50%;
+  height: 200px;
+  padding: 2px;
+  box-sizing: border-box;
+}
+.modal-edit-post .center .p-image-container .triple-img .img-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.modal-edit-post .center .p-image-container .triple-img .img-item:nth-child(3) {
+  width: 100%;
+}/*# sourceMappingURL=ModalEditPost.css.map */

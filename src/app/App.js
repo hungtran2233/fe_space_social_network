@@ -2,7 +2,6 @@ import Header from "common/components/Header";
 import SignIn from "features/authentication/pages/SignIn";
 import SignUp from "features/authentication/pages/SignUp";
 
-import PostHome from "features/home/pages/PostHome";
 import Profile from "features/home/pages/Profile";
 
 import ImageHome from "features/image/pages/ImageHome";
@@ -15,6 +14,8 @@ import { AuthRoute, PrivateRoute } from "./Guard";
 import { fetchProfileAction } from "features/authentication/action";
 import OtherUserProfile from "features/other-user-page/OtherUserProfile";
 import FriendPage from "common/components/child-components/FriendPage";
+import CreateNewsPage from "features/home/pages/News/components/CreateNewsPage";
+import HomeScreen from "features/home/HomeScreen";
 
 function App() {
 	const dispatch = useDispatch();
@@ -32,10 +33,18 @@ function App() {
 
 				<PrivateRoute
 					path="/"
-					component={PostHome}
+					component={HomeScreen}
 					redirectPath="/sign-in"
 					exact
 				/>
+
+				{/* Create news page */}
+				<PrivateRoute
+					path="/news/create"
+					component={CreateNewsPage}
+					redirectPath="/sign-in"
+				/>
+
 				<PrivateRoute
 					path="/image-home"
 					component={ImageHome}

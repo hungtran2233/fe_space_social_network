@@ -1,0 +1,38 @@
+#OUProfileContent .profile-menu {
+  background: white;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+#OUProfileContent .profile-menu .active {
+  border-bottom: 3px solid #1677ff;
+  color: #1677ff !important;
+}
+#OUProfileContent .profile-menu .left-menu a {
+  display: inline-block;
+  padding: 20px 15px;
+  color: rgb(87, 87, 87);
+  font-weight: 500;
+}
+#OUProfileContent .profile-menu .right-menu {
+  width: 35%;
+}
+#OUProfileContent .profile-menu .right-menu .interaction {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#OUProfileContent .profile-menu .right-menu .interaction .title {
+  font-weight: 500;
+}
+#OUProfileContent .profile-menu .right-menu .interaction .count {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 16px;
+  color: #fa6342;
+}
+#OUProfileContent .content {
+  border-radius: 10px;
+}/*# sourceMappingURL=OUProfileContent.css.map */

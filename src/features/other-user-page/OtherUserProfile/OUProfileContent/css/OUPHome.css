@@ -1,0 +1,11 @@
+#OUPHome {
+  width: 100%;
+  display: flex;
+}
+#OUPHome .col-info {
+  width: 40%;
+}
+#OUPHome .post-container {
+  width: 60%;
+  margin-right: 15px;
+}/*# sourceMappingURL=OUPHome.css.map */

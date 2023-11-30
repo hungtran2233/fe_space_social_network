@@ -1,0 +1,143 @@
+#News {
+	display: flex;
+
+	.create-news {
+		border: 1px solid rgb(186, 185, 185);
+		width: 20%;
+		height: 180px;
+		position: relative;
+		overflow: hidden;
+		border-radius: 15px;
+		cursor: pointer;
+
+		&:hover {
+			img {
+				transform: scale(1.1);
+			}
+		}
+
+		.img-add-news {
+			width: 100%;
+			height: 70%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 1;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: 0.5s;
+			}
+		}
+
+		.btn-add-news {
+			position: absolute;
+			top: 60%;
+			left: 50%;
+			z-index: 99;
+			transform: translate(-50%, 0);
+			background-color: white;
+			border-radius: 50%;
+			padding: 5px;
+		}
+
+		.text-add-news {
+			position: absolute;
+			bottom: 5%;
+			left: 50%;
+			transform: translate(-50%, 0);
+			font-size: 12px;
+			font-weight: 500;
+		}
+	}
+
+	.all-news {
+		width: 80%;
+		position: relative;
+
+		// custom arrow
+		.custom-prev-arrow {
+			left: 3%;
+			z-index: 60;
+
+			&::before {
+				font-size: 30px;
+			}
+		}
+
+		.custom-next-arrow {
+			right: 3%;
+			z-index: 60;
+
+			&::before {
+				font-size: 30px;
+			}
+		}
+
+		// cart
+		.card {
+			height: 180px;
+			position: relative;
+			overflow: hidden;
+
+			// image cho card
+			.card-img {
+				box-sizing: border-box;
+				border: 1px solid rgb(194, 194, 194);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 90%;
+				height: 100%;
+				border-radius: 15px;
+				z-index: 10;
+				overflow: hidden;
+				cursor: pointer;
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					transition: 0.6s;
+
+					// hiệu ứng hover
+					&:hover {
+						transform: scale(1.1);
+					}
+				}
+			}
+
+			// avatar của user
+			.card-avatar {
+				position: absolute;
+				top: 5%;
+				left: 10%;
+				width: 30px;
+				height: 30px;
+				border: 3px solid rgb(102, 119, 248);
+				border-radius: 50%;
+				overflow: hidden;
+				z-index: 100;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+
+			// full-name của user
+			.card-full-name {
+				position: absolute;
+				top: 80%;
+				left: 20%;
+				z-index: 20;
+				font-weight: bold;
+				color: white;
+			}
+		}
+	}
+}

@@ -1,0 +1,40 @@
+#AlbumContainer {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid rgb(220, 219, 219);
+  margin-top: 20px;
+}
+#AlbumContainer .title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+#AlbumContainer .album {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+#AlbumContainer .album .album-item {
+  width: calc(50% - 10px);
+  box-sizing: border-box;
+}
+#AlbumContainer .album .album-item .al-image {
+  height: 150px;
+}
+#AlbumContainer .album .album-item .al-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+#AlbumContainer .album .album-item .al-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+#AlbumContainer .album .album-item .img-count {
+  font-weight: 400;
+  margin-left: 5px;
+}/*# sourceMappingURL=ShowAlbum.css.map */

@@ -1,0 +1,16 @@
+.edit-full-name svg {
+  cursor: pointer;
+}
+
+.modal-edit-full-name {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.modal-edit-full-name .label {
+  width: 20%;
+}
+.modal-edit-full-name .value-option {
+  width: 50%;
+}/*# sourceMappingURL=EditFullName.css.map */

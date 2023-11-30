@@ -1,0 +1,110 @@
+#Header {
+  display: flex;
+  align-items: center;
+  background-color: #34465c;
+  padding: 15px 20px;
+}
+#Header .navbar-left {
+  width: 40%;
+  color: white;
+  font-size: 25px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+#Header .navbar-left .logo-area {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+#Header .navbar-left .logo-area img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+#Header .navbar-left .logo-area span {
+  margin-left: 10px;
+}
+#Header .navbar-left .search-bar {
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+}
+#Header .navbar-left .search-bar ::placeholder {
+  color: #b5b4b4;
+}
+#Header .navbar-left .search-bar .ant-input-prefix {
+  margin-left: 10px;
+  background: #495a6e;
+}
+#Header .navbar-left .search-bar .ant-input {
+  margin-left: 10px;
+  background: #495a6e;
+  color: white;
+}
+#Header .navbar-center {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+#Header .navbar-center a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  transition: 1s;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 32px;
+  color: rgb(111, 111, 111);
+  border: 1px solid #4a6382;
+  box-sizing: border-box;
+}
+#Header .navbar-center .active {
+  background-color: #537094;
+  color: white;
+  border-radius: 50%;
+}
+#Header .navbar-right {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#Header .navbar-right .notification {
+  display: flex;
+  gap: 10px;
+}
+#Header .navbar-right .notification .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #4a6382;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 38px;
+  cursor: pointer;
+}
+#Header .navbar-right .notification .icon i {
+  color: white;
+}
+#Header .navbar-right .user-box {
+  margin-left: 10px;
+}
+
+.content-button-nav-right .item-option {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.content-button-nav-right .item-option:hover {
+  background-color: rgb(233, 230, 230);
+}
+.content-button-nav-right .item-option .text {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}/*# sourceMappingURL=Header.css.map */

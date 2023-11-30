@@ -1,0 +1,60 @@
+#PHeader {
+  height: 450px;
+  background-color: white;
+  border-bottom: 2px solid #f0f2f5;
+}
+#PHeader .top {
+  width: 100%;
+  height: 75%;
+  position: relative;
+}
+#PHeader .top .cover-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#PHeader .top .cover-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+#PHeader .top .avatar {
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  top: 100%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+}
+#PHeader .top .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+#PHeader .profile-info {
+  display: flex;
+}
+#PHeader .profile-info .none-div {
+  width: 25%;
+}
+#PHeader .profile-info .info {
+  width: 25%;
+  padding: 15px 50px;
+}
+#PHeader .profile-info .info .full-name {
+  font-size: 20px;
+  font-weight: 500;
+}
+#PHeader .profile-info .create-news {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#PHeader .profile-info .create-news button {
+  margin-right: 30px;
+}/*# sourceMappingURL=PHeader.css.map */

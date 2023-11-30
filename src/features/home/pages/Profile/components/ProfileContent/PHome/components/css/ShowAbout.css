@@ -1,0 +1,21 @@
+#ShowAbout {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgb(220, 219, 219);
+}
+#ShowAbout .title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+#ShowAbout .child-item {
+  display: flex;
+  align-items: center;
+  padding: 3px 0;
+}
+#ShowAbout .child-item span {
+  margin-right: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}/*# sourceMappingURL=ShowAbout.css.map */

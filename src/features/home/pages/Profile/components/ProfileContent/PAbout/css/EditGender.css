@@ -1,0 +1,12 @@
+.modal-edit-gender {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.modal-edit-gender .label {
+  width: 20%;
+}
+.modal-edit-gender .value-option {
+  width: 50%;
+}/*# sourceMappingURL=EditGender.css.map */

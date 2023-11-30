@@ -1,0 +1,23 @@
+.edit-user-link svg {
+  cursor: pointer;
+}
+
+.modal-edit-user-link {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.modal-edit-user-link .label {
+  width: 10%;
+}
+.modal-edit-user-link .value-option {
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+.modal-edit-user-link .value-option span {
+  color: rgb(119, 118, 118);
+  font-weight: 500;
+  margin-right: 10px;
+}/*# sourceMappingURL=EditUserLink.css.map */

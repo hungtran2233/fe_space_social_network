@@ -1,0 +1,94 @@
+#TypeImg .container-left {
+  border-right: 2px solid rgb(201, 200, 200);
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#TypeImg .container-left .all-action-news {
+  padding: 15px 40px;
+}
+#TypeImg .container-left .all-action-news .title {
+  font-size: 20px;
+  font-weight: 500;
+}
+#TypeImg .container-left .all-action-news .control-news > div {
+  padding: 15px;
+  margin-top: 10px;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+#TypeImg .container-left .all-action-news .control-news > div span {
+  margin-left: 15px;
+  font-weight: 500;
+}
+#TypeImg .container-left .all-action-news .control-news > div:hover {
+  background-color: rgb(213, 213, 213);
+}
+#TypeImg .container-left .all-action-news .control-news .hidden-box {
+  display: none;
+}
+#TypeImg .container-left .action {
+  padding: 25px 50px;
+  border-top: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+}
+#TypeImg .container-left .action button {
+  padding: 0 50px;
+}
+#TypeImg .container-right {
+  padding: 20px;
+  min-height: 80vh;
+}
+#TypeImg .container-right .preview {
+  box-shadow: rgba(149, 157, 165, 0.5) 0px 0px 24px;
+  border-radius: 15px;
+  padding: 20px;
+  min-height: 70vh;
+}
+#TypeImg .container-right .preview .title {
+  font-size: 18px;
+  font-weight: 500;
+}
+#TypeImg .container-right .preview .background-box {
+  min-height: 60vh;
+  background-color: black;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#TypeImg .container-right .preview .background-box .content {
+  width: 30%;
+  min-height: 60vh;
+  border-radius: 15px;
+  border: 1px solid white;
+  background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#TypeImg .container-right .preview .background-box .content .ant-upload-list-picture-card {
+  text-align: center;
+}
+#TypeImg .container-right .preview .background-box .content .ant-upload-list-picture-card .ant-upload-select {
+  font-weight: 500;
+}
+#TypeImg .container-right .preview .background-box .content .ant-upload-list-item-container {
+  width: 100%;
+  height: 100%;
+}
+#TypeImg .container-right .preview .background-box .content .ant-upload-list-item-done {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+#TypeImg .container-right .preview .background-box .content .ant-upload-list-item-done::before {
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=TypeImg.css.map */

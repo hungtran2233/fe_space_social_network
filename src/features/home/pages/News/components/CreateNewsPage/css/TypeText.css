@@ -1,0 +1,89 @@
+#TypeText .container-left {
+  border-right: 2px solid rgb(201, 200, 200);
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#TypeText .container-left .all-action-news {
+  padding: 15px 40px;
+}
+#TypeText .container-left .all-action-news .title {
+  font-size: 20px;
+  font-weight: 500;
+}
+#TypeText .container-left .all-action-news .control-news .add-privacy,
+#TypeText .container-left .all-action-news .control-news .add-music {
+  padding: 15px;
+  margin-top: 10px;
+  border: 1px solid rgb(193, 193, 193);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+#TypeText .container-left .all-action-news .control-news .add-privacy span,
+#TypeText .container-left .all-action-news .control-news .add-music span {
+  margin-left: 15px;
+  font-weight: 500;
+}
+#TypeText .container-left .all-action-news .control-news .add-privacy:hover,
+#TypeText .container-left .all-action-news .control-news .add-music:hover {
+  background-color: rgb(213, 213, 213);
+}
+#TypeText .container-left .all-action-news .control-news .edit-content {
+  margin: 15px 0;
+}
+#TypeText .container-left .action {
+  padding: 25px 50px;
+  border-top: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+}
+#TypeText .container-left .action button {
+  padding: 0 50px;
+}
+#TypeText .container-right {
+  padding: 20px;
+  min-height: 80vh;
+}
+#TypeText .container-right .preview {
+  box-shadow: rgba(149, 157, 165, 0.5) 0px 0px 24px;
+  border-radius: 15px;
+  padding: 20px;
+  min-height: 70vh;
+}
+#TypeText .container-right .preview .title {
+  font-size: 18px;
+  font-weight: 500;
+}
+#TypeText .container-right .preview .background-box {
+  min-height: 60vh;
+  background-color: black;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#TypeText .container-right .preview .background-box .content {
+  width: 250px;
+  min-height: 400px;
+  border-radius: 15px;
+  border: 1px solid white;
+  background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#TypeText .container-right .preview .background-box .content .text-value {
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+}/*# sourceMappingURL=TypeText.css.map */

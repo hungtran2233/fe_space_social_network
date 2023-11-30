@@ -70,17 +70,17 @@ function Header() {
 			}
 		});
 	};
-	// button Avatar
-	const [open, setOpen] = useState(false);
-	const hide = () => {
-		setOpen(false);
+	// button User
+	const [openUser, setOpenUser] = useState(false);
+	const hideUser = () => {
+		setOpenUser(false);
 	};
-	const handleOpenChange = (newOpen) => {
-		setOpen(newOpen);
+	const handleOpenChangeUser = (newOpen) => {
+		setOpenUser(newOpen);
 	};
 
-	// render content cho button Avatar
-	const renderContentForButton = () => {
+	// render content cho button User
+	const renderContentUser = () => {
 		return (
 			<div className="content-button-nav-right">
 				<div className="item-option">
@@ -99,6 +99,61 @@ function Header() {
 		);
 	};
 
+	// button Friend
+	const [openFriend, setOpenFriend] = useState(false);
+	const hideFriend = () => {
+		setOpenFriend(false);
+	};
+	const handleOpenChangeFriend = (newOpen) => {
+		setOpenFriend(newOpen);
+	};
+
+	// render content -- Friend
+	const renderContentFriend = () => {
+		return (
+			<div className="content-button-friend">
+				<div className="item-option">
+					<div className="text">Loan đã gửi lời mời kết bạn</div>
+				</div>
+				<div className="item-option">
+					<div className="text">Trung đã chấp nhận lời mời kết bạn</div>
+				</div>
+				<div className="item-option" onClick={logout}>
+					<div className="text">Bình đã gửi lời mời kết bạn</div>
+				</div>
+			</div>
+		);
+	};
+
+	///////////////
+	// button notification
+	const [openNotification, setOpenNotification] = useState(false);
+	const hideNotification = () => {
+		setOpenNotification(false);
+	};
+	const handleOpenChangeNotification = (newOpen) => {
+		setOpenNotification(newOpen);
+	};
+
+	// render content cho button User
+	const renderContentNotification = () => {
+		return (
+			<div className="content-button-notification">
+				<div className="item-option">
+					<div className="text">Duy đã thêm một ảnh mới</div>
+				</div>
+				<div className="item-option">
+					<div className="text">
+						Ánh đã trả lời một bình luận mà bạn được gắn thẻ
+					</div>
+				</div>
+				<div className="item-option" onClick={logout}>
+					<div className="text">Ngọc đã đăng bài viết mới</div>
+				</div>
+			</div>
+		);
+	};
+
 	// render user info
 	const renderUserInfo = () => {
 		if (profile) {
@@ -110,18 +165,20 @@ function Header() {
 								src={`${process.env.PUBLIC_URL}/image/logo-space.png`}
 								alt="logo"
 							/>
+
 							<span>Space</span>
 						</div>
 
 						<div className="search-bar">
 							<Input
-								placeholder="Tìm kiếm"
+								placeholder="Tìm kiếm bạn bè"
 								prefix={
 									<SearchOutlined className="site-form-item-icon" />
 								}
 								style={{
-									width: 220,
-									background: "#495A6E",
+									width: 320,
+									height: 40,
+									background: "rgba(255, 255, 255, 0.1)",
 									borderRadius: 30,
 									border: "none",
 									color: "white",
@@ -129,72 +186,132 @@ function Header() {
 							/>
 						</div>
 					</div>
-					<nav className="navbar-center">
-						<NavLink to="/" activeClassName="active" exact>
-							<HomeIcon sx={{ fontSize: 30 }} />
-							{/* <HomeOutlined style={{ background: "white" }} /> */}
-						</NavLink>
-						<NavLink to="/image-home" activeClassName="active">
-							<PhotoIcon sx={{ fontSize: 30 }} />
-						</NavLink>
 
+					<nav className="navbar-center">
+						<div className="home-box">
+							<NavLink to="/" activeClassName="active" exact>
+								<i className="fa-solid fa-house fa-md"></i>
+							</NavLink>
+						</div>
 						<Space>
-							<Badge count={5} offset={[-14, 2]}>
-								<NavLink to="/message" activeClassName="active">
-									<MessageIcon sx={{ fontSize: 30 }} />
+							<Badge
+								size="medium"
+								count={5}
+								offset={[0, 2]}
+								style={{ backgroundColor: "#52c41a", boxShadow: "none" }}
+							>
+								<NavLink to="/image-home" activeClassName="active">
+									<i className="fa-regular fa-image fa-lg"></i>
 								</NavLink>
 							</Badge>
 						</Space>
-						{/* <NavLink to="/friend" activeClassName="active">
-							<PersonIcon sx={{ fontSize: 30 }} />
-						</NavLink> */}
-						{/* <NavLink to="/notification" activeClassName="active">
-							<PublicIcon sx={{ fontSize: 30 }} />
-						</NavLink> */}
+
+						<Space>
+							<Badge
+								size="medium"
+								count={5}
+								offset={[0, 2]}
+								style={{ boxShadow: "none" }}
+							>
+								<NavLink to="/message" activeClassName="active">
+									<i className="fa-solid fa-message fa-lg"></i>
+								</NavLink>
+							</Badge>
+						</Space>
+
+						<Space>
+							<Badge
+								count={5}
+								offset={[0, 2]}
+								style={{
+									backgroundColor: "#1FD2D6",
+									boxShadow: "none",
+								}}
+							>
+								<NavLink to="/none-1" activeClassName="active">
+									<i className="fa-brands fa-youtube fa-xl"></i>
+								</NavLink>
+							</Badge>
+						</Space>
 					</nav>
 
 					<nav className="navbar-right">
 						{/* <NavLink to="/sign-in">Hi, {profile.full_name}</NavLink>
 						 */}
 						<div className="notification">
-							<Space>
-								<Badge
-									count={5}
-									offset={[-18, 2]}
-									style={{ backgroundColor: "#1FD2D6" }}
-								>
-									<div className="n-friend">
-										<PersonIcon sx={{ fontSize: 26 }} />
-									</div>
-								</Badge>
-							</Space>
-							<Space>
-								<Badge
-									count={5}
-									offset={[-18, 2]}
-									style={{ backgroundColor: "#764FFA" }}
-								>
-									<div className="n-action">
-										<NotificationsIcon sx={{ fontSize: 26 }} />
-									</div>
-								</Badge>
-							</Space>
+							<Popover
+								content={renderContentFriend}
+								title="Bạn bè"
+								trigger="click"
+								open={openFriend}
+								onOpenChange={handleOpenChangeFriend}
+								placement="bottomLeft"
+							>
+								<div className="icon">
+									<Space>
+										<Badge
+											count={5}
+											offset={[10, -10]}
+											style={{
+												backgroundColor: "rgb(250, 173, 20)",
+												boxShadow: "none",
+											}}
+										>
+											<div className="n-friend">
+												<i className="fa-solid fa-user fa-lg"></i>
+											</div>
+										</Badge>
+									</Space>
+								</div>
+							</Popover>
+
+							{/* Notification  */}
+							<Popover
+								content={renderContentNotification}
+								title="Thông báo"
+								trigger="click"
+								open={openNotification}
+								onOpenChange={handleOpenChangeNotification}
+								placement="bottomLeft"
+							>
+								<div className="icon">
+									<Space>
+										<Badge
+											count={5}
+											offset={[10, -10]}
+											style={{
+												backgroundColor: "#764FFA",
+												boxShadow: "none",
+											}}
+										>
+											<div className="n-action">
+												<i className="fa-solid fa-bell fa-lg"></i>
+											</div>
+										</Badge>
+									</Space>
+								</div>
+							</Popover>
 						</div>
 
-						<Popover
-							content={renderContentForButton}
-							title={profile.full_name}
-							trigger="click"
-							open={open}
-							onOpenChange={handleOpenChange}
-							placement="bottomLeft"
-						>
-							<Avatar
-								alt="Remy Sharp"
-								src={`http://localhost:8080/${profile.avatar}`}
-								style={{ border: "2px solid #555555", cursor: "pointer" }}
-							/>
-						</Popover>
+						<div className="user-box">
+							<Popover
+								content={renderContentUser}
+								title={profile.full_name}
+								trigger="click"
+								open={openUser}
+								onOpenChange={handleOpenChangeUser}
+								placement="bottomLeft"
+							>
+								<Avatar
+									alt="Remy Sharp"
+									src={`http://localhost:8080/${profile.avatar}`}
+									style={{
+										border: "2px solid #555555",
+										cursor: "pointer",
+									}}
+								/>
+							</Popover>
+						</div>
 					</nav>
 				</>
 			);

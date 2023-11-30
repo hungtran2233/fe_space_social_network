@@ -1,0 +1,11 @@
+#PHome {
+  width: 100%;
+  display: flex;
+}
+#PHome .col-info {
+  width: 40%;
+}
+#PHome .post-container {
+  width: 60%;
+  margin-right: 15px;
+}/*# sourceMappingURL=PHome.css.map */

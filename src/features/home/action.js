@@ -1,23 +1,6 @@
 import instance from "api/instance";
 import axios from "axios";
 
-// fetch News
-export const fetchNewsAction = async (dispatch) => {
-	try {
-		const res = await instance.request({
-			url: "/news/get-all-news",
-			method: "GET",
-		});
-		// console.log(res.data);
-		dispatch({
-			type: "postStore/SET_ALL_NEWS",
-			payload: res.data.content,
-		});
-	} catch (error) {
-		console.log(error);
-	}
-};
-
 // fetch all Post (lấy tất cả post của tất cả user)
 export const fetchPostAction = async (dispatch) => {
 	try {

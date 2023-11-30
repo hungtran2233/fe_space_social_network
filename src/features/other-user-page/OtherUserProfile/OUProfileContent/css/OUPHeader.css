@@ -1,0 +1,68 @@
+#OUPHeader {
+  height: 450px;
+  background-color: white;
+  border-bottom: 2px solid #f0f2f5;
+}
+#OUPHeader .top {
+  width: 100%;
+  height: 75%;
+  position: relative;
+}
+#OUPHeader .top .cover-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#OUPHeader .top .cover-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+#OUPHeader .top .avatar {
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  top: 100%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+}
+#OUPHeader .top .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+#OUPHeader .top .action-bar {
+  position: absolute;
+  bottom: 15%;
+  right: 0%;
+  width: 200px;
+  background-color: #a5a6a8;
+}
+#OUPHeader .profile-info {
+  display: flex;
+}
+#OUPHeader .profile-info .none-div {
+  width: 25%;
+}
+#OUPHeader .profile-info .info {
+  width: 25%;
+  padding: 15px 30px 15px 50px;
+}
+#OUPHeader .profile-info .info .full-name {
+  font-size: 20px;
+  font-weight: 500;
+}
+#OUPHeader .profile-info .friend-ship-content {
+  width: 50%;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#OUPHeader .profile-info .friend-ship-content div {
+  margin-left: 5px;
+}/*# sourceMappingURL=OUPHeader.css.map */
