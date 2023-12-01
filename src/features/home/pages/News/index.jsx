@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Button, Spin } from "antd";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -7,8 +7,11 @@ import "slick-carousel/slick/slick-theme.css";
 import "./News.scss";
 import { useHistory } from "react-router-dom";
 import { PlusCircleOutlined } from "@ant-design/icons";
+import { fetchAllNewsAction } from "./services/newsAction";
 
 function News() {
+	const dispatch = useDispatch();
+
 	const arrNews = useSelector((state) => state.newsStore.news);
 	const myInfo = useSelector((state) => state.auth.profile);
 
@@ -17,6 +20,15 @@ function News() {
 	const redirectCreateNews = () => {
 		history.push("/news/create");
 	};
+
+	// Call api đế lấy arr news
+	const fetchAllNews = () => {
+		dispatch(fetchAllNewsAction);
+	};
+
+	useEffect(() => {
+		fetchAllNews();
+	}, []);
 
 	if (!arrNews)
 		return (
@@ -53,8 +65,41 @@ function News() {
 		nextArrow: <SampleNextArrow />,
 		prevArrow: <SamplePrevArrow />,
 	};
+
+	// render slide nếu arrNews < 4
+	const renderNews = () => {
+		return arrNews.map((item) => {
+			return (
+				<div key={item.news_id} className="other-card">
+					<div className="other-card-img">
+						<img
+							src={
+								"http://localhost:8080/public/img/" +
+								decodeURIComponent(item.image.path)
+							}
+							alt=""
+						/>
+					</div>
+
+					<div className="other-card-avatar">
+						<img
+							src={
+								"http://localhost:8080/" +
+								decodeURIComponent(item.user.avatar)
+							}
+							alt=""
+						/>
+					</div>
+
+					<div className="other-card-full-name">{item.user.full_name}</div>
+				</div>
+			);
+		});
+	};
+
 	return (
 		<div id="News">
+			{/* {JSON.stringify(arrNews.length)} */}
 			<div className="create-news" onClick={redirectCreateNews}>
 				<div className="img-add-news">
 					<img src={`http://localhost:8080/${myInfo.avatar}`} alt="avatar" />
@@ -68,36 +113,42 @@ function News() {
 				<div className="text-add-news">Tạo tin</div>
 			</div>
 
-			<div className="all-news">
-				<Slider {...settings}>
-					{arrNews.map((item) => {
-						return (
-							<div key={item.news_id} className="card">
-								<div className="card-img">
-									<img
-										src={
-											"http://localhost:8080/public/img/" +
-											decodeURIComponent(item.path)
-										}
-										alt=""
-									/>
-								</div>
-								<div className="card-avatar">
-									<img
-										src={
-											"http://localhost:8080/" +
-											decodeURIComponent(item.avatar)
-										}
-										alt=""
-									/>
-								</div>
+			{arrNews.length >= 4 ? (
+				<div className="all-news">
+					<Slider {...settings}>
+						{arrNews.map((item) => {
+							return (
+								<div key={item.news_id} className="card">
+									<div className="card-img">
+										<img
+											src={
+												"http://localhost:8080/public/img/" +
+												decodeURIComponent(item.image.path)
+											}
+											alt=""
+										/>
+									</div>
+									<div className="card-avatar">
+										<img
+											src={
+												"http://localhost:8080/" +
+												decodeURIComponent(item.user.avatar)
+											}
+											alt=""
+										/>
+									</div>
 
-								<div className="card-full-name">{item.full_name}</div>
-							</div>
-						);
-					})}
-				</Slider>
-			</div>
+									<div className="card-full-name">
+										{item.user.full_name}
+									</div>
+								</div>
+							);
+						})}
+					</Slider>
+				</div>
+			) : (
+				<div className="other-all-news">{renderNews()}</div>
+			)}
 		</div>
 	);
 }

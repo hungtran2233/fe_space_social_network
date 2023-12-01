@@ -18,7 +18,7 @@ function NewsPrivacy({ getPrivacyId }) {
 	};
 
 	// Radio button
-	const [selectedPrivacy, setSelectedPrivacy] = useState("1");
+	const [selectedPrivacy, setSelectedPrivacy] = useState("2");
 
 	const onChangeRadio = (e) => {
 		setSelectedPrivacy(e.target.value);
@@ -32,16 +32,11 @@ function NewsPrivacy({ getPrivacyId }) {
 					<span>Quyền riêng tư của tin</span>
 				</div>
 				<div className="btn-right">
-					{(selectedPrivacy === "1" && (
+					{(selectedPrivacy === "2" && (
 						<span className="status-icon">
-							<i className="fa-solid fa-earth-americas fa-xl"></i>
+							<i className="fa-solid fa-user-group fa-xl"></i>
 						</span>
 					)) ||
-						(selectedPrivacy === "2" && (
-							<span className="status-icon">
-								<i className="fa-solid fa-user-group fa-xl"></i>
-							</span>
-						)) ||
 						(selectedPrivacy === "3" && (
 							<span className="status-icon">
 								<i className="fa-solid fa-lock fa-xl"></i>
@@ -63,7 +58,7 @@ function NewsPrivacy({ getPrivacyId }) {
 						<p>Tin của bạn sẽ hiển thị trong vòng 24h</p>
 					</div>
 					<div className="all-option">
-						<label className="option" htmlFor="radio-1">
+						{/* <label className="option" htmlFor="radio-1">
 							<div className="icon">
 								<i className="fa-solid fa-earth-americas fa-xl"></i>
 							</div>
@@ -83,14 +78,14 @@ function NewsPrivacy({ getPrivacyId }) {
 									onChange={onChangeRadio}
 								/>
 							</div>
-						</label>
+						</label> */}
 						<label className="option" htmlFor="radio-2">
 							<div className="icon">
 								<i className="fa-solid fa-user-group fa-xl"></i>
 							</div>
 							<div className="description">
 								<div className="des-title">Bạn bè</div>
-								<div className="des-text">Chỉ bạn bè của bạn</div>
+								<div className="des-text">Tất cả bạn bè của bạn</div>
 							</div>
 							<div className="btn-input">
 								<input
@@ -99,6 +94,7 @@ function NewsPrivacy({ getPrivacyId }) {
 									value="2"
 									id="radio-2"
 									onChange={onChangeRadio}
+									checked={selectedPrivacy === "2"}
 								/>
 							</div>
 						</label>

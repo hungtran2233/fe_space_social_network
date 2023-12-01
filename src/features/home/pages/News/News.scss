@@ -54,9 +54,13 @@
 		}
 	}
 
+	// Render slider
 	.all-news {
 		width: 80%;
 		position: relative;
+
+		//////////
+		// Thư viện Slider
 
 		// custom arrow
 		.custom-prev-arrow {
@@ -131,6 +135,76 @@
 
 			// full-name của user
 			.card-full-name {
+				position: absolute;
+				top: 80%;
+				left: 20%;
+				z-index: 20;
+				font-weight: bold;
+				color: white;
+			}
+		}
+
+		// End - Thư viện Slider
+	}
+
+	///// Render thủ công
+	.other-all-news {
+		// Render news thủ công
+		width: 80%;
+
+		display: flex;
+
+		.other-card {
+			width: 25%;
+			height: 180px;
+			box-sizing: border-box;
+			border: 1px solid rgb(179, 178, 178);
+			border-radius: 15px;
+			overflow: hidden;
+			cursor: pointer;
+			margin-left: 10px;
+
+			position: relative;
+
+			.other-card-img {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					transition: 0.5s;
+
+					&:hover {
+						transform: scale(1.1);
+					}
+				}
+			}
+
+			.other-card-avatar {
+				position: absolute;
+				top: 5%;
+				left: 10%;
+				width: 30px;
+				height: 30px;
+				border: 3px solid rgb(102, 119, 248);
+				border-radius: 50%;
+				overflow: hidden;
+				z-index: 100;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+
+			.other-card-full-name {
 				position: absolute;
 				top: 80%;
 				left: 20%;

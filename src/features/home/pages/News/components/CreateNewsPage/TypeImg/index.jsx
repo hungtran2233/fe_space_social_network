@@ -11,7 +11,7 @@ import { createNewsAction, createNewsTypeImgAction } from "../../../services/new
 function TypeImg({ onCancel }) {
 	const dispatch = useDispatch();
 	// lấy giá trị privacy
-	const [privacyId, setPrivacyId] = useState("1");
+	const [privacyId, setPrivacyId] = useState("2");
 	// ẩn hiện music box
 	const [isMusicVisible, setMusicVisible] = useState(false);
 	// Lấy giá trị music url

@@ -1,6 +1,6 @@
-import { Button, Col, Input, Row, message, Select, Space } from "antd";
+import { Button, Col, Input, Row, message, Select, Space, Radio } from "antd";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./TypeText.scss";
 import ImgCrop from "antd-img-crop";
 import { Upload } from "antd";
@@ -11,6 +11,7 @@ import { createNewsAction, createNewsTypeTextAction } from "../../../services/ne
 
 import html2canvas from "html2canvas";
 import { formatStringForNews } from "common/utils/formatStringForNews";
+
 const { TextArea } = Input;
 
 function TypeText({ onCancel }) {
@@ -20,16 +21,26 @@ function TypeText({ onCancel }) {
 	const [imageData, setImageData] = useState(null);
 
 	// lấy giá trị privacy
-	const [privacyId, setPrivacyId] = useState("1");
+	const [privacyId, setPrivacyId] = useState("2");
 	// Lấy giá trị text area
 	const [textValue, setTextValue] = useState("");
+	// Lấy giá trị font chữ
+	const [selectedFont, setSelectedFont] = useState("basic");
+	// Lấy giá trị background
+	const [selectedBackground, setSelectedBackground] = useState("bg-1");
+
 	// ẩn hiện music box
 	const [isMusicVisible, setMusicVisible] = useState(false);
 	// Lấy giá trị music url
 	const [musicUrl, setMusicUrl] = useState("");
+
+	// test thử
+	useEffect(() => {
+		console.log(selectedBackground);
+	}, [selectedBackground]);
+
 	// Message thông báo thêm tin thành công
 	const [messageApi, contextHolder] = message.useMessage();
-
 	const key = "updatable";
 	const openMessage = () => {
 		messageApi.open({
@@ -67,17 +78,31 @@ function TypeText({ onCancel }) {
 	};
 
 	// Lấy giá trị text area
-	const handleValueInput = (e) => {
+	const handleValueInput = async (e) => {
 		// console.log(e.target.value);
-		setTextValue(e.target.value);
+		await setTextValue(e.target.value);
 	};
 
 	// Lấy giá trị font chữ
-	const handleGetFontStyle = (value) => {
-		console.log(`selected ${value}`);
+	// Đối tượng ánh xạ giữa giá trị từ Select và tên của class
+	const fontClassMapping = {
+		basic: "basic-font-text",
+		model: "model-font-text",
+		classic: "classic-font-text",
+		// Thêm các ánh xạ khác nếu cần
 	};
 
-	//
+	// Cập nhật giá trị font được chọn
+	const handleGetFontStyle = (value) => {
+		setSelectedFont(value);
+	};
+
+	// Lấy giá trị background
+	const handleGetBackground = (e) => {
+		setSelectedBackground(e.target.value);
+	};
+
+	// chuyển base64 thành File obj
 	const dataURItoFile = (dataURI, filename) => {
 		const byteString = atob(dataURI.split(",")[1]);
 		const ab = new ArrayBuffer(byteString.length);
@@ -132,25 +157,28 @@ function TypeText({ onCancel }) {
 					<div className="all-action-news">
 						<div className="title">Tin của bạn</div>
 						<div className="control-news">
-							<div className="add-privacy">
-								<NewsPrivacy getPrivacyId={getPrivacyId} />
-							</div>
+							<NewsPrivacy getPrivacyId={getPrivacyId} />
 
 							<div className="edit-content">
 								<div className="add-text">
 									<TextArea
-										rows={4}
+										rows={3}
 										style={{ resize: "none" }}
 										placeholder="Hãy nhập văn bản"
 										onChange={handleValueInput}
 									/>
 								</div>
-								<div className="text-style">
+								<div className="custom-font-style">
+									<div className="icon">
+										<i className="fa-solid fa-font fa-lg"></i>
+									</div>
 									<Select
 										defaultValue="basic"
 										style={{
-											width: 120,
+											width: "90%",
+											border: "none",
 										}}
+										bordered={false}
 										onChange={handleGetFontStyle}
 										options={[
 											{
@@ -168,7 +196,139 @@ function TypeText({ onCancel }) {
 										]}
 									/>
 								</div>
-								<div className="text-background"></div>
+								<div className="custom-background">
+									<div className="title">Phông nền</div>
+									<div className="option-container">
+										<label htmlFor="id-bg-1">
+											<div className="btn-input">
+												<input
+													type="radio"
+													name="bg-type"
+													value="bg-1"
+													id="id-bg-1"
+													checked={
+														selectedBackground === "bg-1"
+													}
+													onChange={handleGetBackground}
+													style={{ display: "none" }}
+												/>
+											</div>
+											<div
+												className={`option ${
+													selectedBackground === "bg-1"
+														? "checked-radio-bg"
+														: ""
+												}`}
+											>
+												<img
+													src="/image/news_background/default.jpg"
+													alt=""
+												/>
+											</div>
+										</label>
+										<label htmlFor="id-bg-2">
+											<div className="btn-input">
+												<input
+													type="radio"
+													name="bg-type"
+													value="bg-2"
+													id="id-bg-2"
+													onChange={handleGetBackground}
+													style={{ display: "none" }}
+												/>
+											</div>
+											<div
+												className={`option ${
+													selectedBackground === "bg-2"
+														? "checked-radio-bg"
+														: ""
+												}`}
+											>
+												<img
+													src="/image/news_background/noel.jpg"
+													alt="Example"
+												/>
+											</div>
+										</label>
+										<label htmlFor="id-bg-3">
+											<div className="btn-input">
+												<input
+													type="radio"
+													name="bg-type"
+													value="bg-3"
+													id="id-bg-3"
+													onChange={handleGetBackground}
+													style={{ display: "none" }}
+												/>
+											</div>
+											<div
+												className={`option ${
+													selectedBackground === "bg-3"
+														? "checked-radio-bg"
+														: ""
+												}`}
+											>
+												<img
+													src="/image/news_background/design-colors-blue.jpg"
+													alt="Example"
+												/>
+											</div>
+										</label>
+
+										<label htmlFor="id-bg-4">
+											<div className="btn-input">
+												<input
+													type="radio"
+													name="bg-type"
+													value="bg-4"
+													id="id-bg-4"
+													onChange={handleGetBackground}
+													style={{ display: "none" }}
+												/>
+											</div>
+											<div
+												className={`option ${
+													selectedBackground === "bg-4"
+														? "checked-radio-bg"
+														: ""
+												}`}
+											>
+												<img
+													src="/image/news_background/autumn.jpg"
+													alt="Example"
+												/>
+											</div>
+										</label>
+
+										<label htmlFor="id-bg-5">
+											<div className="btn-input">
+												<input
+													type="radio"
+													name="bg-type"
+													value="bg-5"
+													id="id-bg-5"
+													checked={
+														selectedBackground === "bg-5"
+													}
+													onChange={handleGetBackground}
+													style={{ display: "none" }}
+												/>
+											</div>
+											<div
+												className={`option ${
+													selectedBackground === "bg-5"
+														? "checked-radio-bg"
+														: ""
+												}`}
+											>
+												<img
+													src="/image/news_background/dark-1.jpg"
+													alt="Example"
+												/>
+											</div>
+										</label>
+									</div>
+								</div>
 							</div>
 
 							<div className="add-music" onClick={handleShowMusicBox}>
@@ -201,13 +361,35 @@ function TypeText({ onCancel }) {
 						<div className="title">Xem trước</div>
 
 						<div className="background-box">
-							<div className="content" ref={componentRef}>
-								<div className="text-value">{textValue}</div>
+							<div
+								className="content"
+								style={
+									(selectedBackground === "bg-1" && {
+										backgroundImage: `url("/image/news_background/default.jpg")`,
+									}) ||
+									(selectedBackground === "bg-2" && {
+										backgroundImage: `url("/image/news_background/noel.jpg")`,
+									}) ||
+									(selectedBackground === "bg-3" && {
+										backgroundImage: `url("/image/news_background/design-colors-blue.jpg")`,
+									}) ||
+									(selectedBackground === "bg-4" && {
+										backgroundImage: `url("/image/news_background/autumn.jpg")`,
+									}) ||
+									(selectedBackground === "bg-5" && {
+										backgroundImage: `url("/image/news_background/dark-1.jpg")`,
+									})
+								}
+								ref={componentRef}
+							>
+								<div
+									className={`text-value ${fontClassMapping[selectedFont]}`}
+								>
+									{textValue}
+								</div>
 							</div>
 						</div>
 					</div>
-					{/* Hiển thị ảnh */}
-					{imageData && <img src={imageData} alt="Chụp ảnh" />}
 				</div>
 			</Col>
 		</Row>

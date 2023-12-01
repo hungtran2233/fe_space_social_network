@@ -16,6 +16,7 @@ import OtherUserProfile from "features/other-user-page/OtherUserProfile";
 import FriendPage from "common/components/child-components/FriendPage";
 import CreateNewsPage from "features/home/pages/News/components/CreateNewsPage";
 import HomeScreen from "features/home/HomeScreen";
+import NewsScreen from "features/home/pages/News/NewsScreen";
 
 function App() {
 	const dispatch = useDispatch();
@@ -38,7 +39,14 @@ function App() {
 					exact
 				/>
 
-				{/* Create news page */}
+				{/* Page  news  */}
+				<PrivateRoute
+					path="/news"
+					component={NewsScreen}
+					redirectPath="/sign-in"
+				/>
+
+				{/* Page create news  */}
 				<PrivateRoute
 					path="/news/create"
 					component={CreateNewsPage}

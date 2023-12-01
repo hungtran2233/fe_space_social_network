@@ -18,6 +18,7 @@ import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
 import FollowTheSignsIcon from "@mui/icons-material/FollowTheSigns";
 import BallotIcon from "@mui/icons-material/Ballot";
 import Profile from "features/home/pages/Profile";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 
 function LeftSidebar(props) {
 	const profile = props.profile;
@@ -27,8 +28,14 @@ function LeftSidebar(props) {
 		history.push("/profile/" + profile.link_url);
 	};
 
+	// Đến trang friend
 	const goToFriendPage = () => {
 		history.push("/friend-page/");
+	};
+
+	// Đến trang news
+	const goToNewsPage = () => {
+		history.push("/news");
 	};
 
 	return (
@@ -54,6 +61,13 @@ function LeftSidebar(props) {
 				<div className="text">Nhóm</div>
 			</div>
 
+			<div className="btn-sider" onClick={goToNewsPage}>
+				<div className="icon">
+					<AutoStoriesIcon sx={{ fontSize: 26, color: "orange" }} />
+				</div>
+				<div className="text">Tin của bạn</div>
+			</div>
+
 			<div className="btn-sider">
 				<div className="icon">
 					<OndemandVideoIcon fontSize="medium" sx={{ color: "red" }} />
@@ -63,7 +77,7 @@ function LeftSidebar(props) {
 
 			<div className="btn-sider">
 				<div className="icon">
-					<ImageIcon sx={{ fontSize: 28, color: "#FFCC66" }} />
+					<ImageIcon sx={{ fontSize: 28, color: "#66FF99" }} />
 				</div>
 				<div className="text">Ảnh mới</div>
 			</div>
@@ -86,7 +100,7 @@ function LeftSidebar(props) {
 				<div className="icon">
 					<FeedIcon sx={{ fontSize: 28, color: "#3399FF" }} />
 				</div>
-				<div className="text">Tin tức</div>
+				<div className="text">Tin tức thường nhật</div>
 			</div>
 
 			<div className="btn-sider">

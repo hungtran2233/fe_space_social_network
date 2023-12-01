@@ -1,8 +1,9 @@
 import instance from "api/instance";
 import axios from "axios";
 
-// fetch all News
-export const fetchNewsAction = async (dispatch) => {
+//
+// Lấy tất cả news của bạn bè và chính mình
+export const fetchAllNewsAction = async (dispatch) => {
 	try {
 		const res = await instance.request({
 			url: "/news/get-all-news",
@@ -106,3 +107,5 @@ export const createNewsTypeTextAction = (
 		}
 	};
 };
+
+/////////////

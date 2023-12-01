@@ -2,6 +2,28 @@
 	.btn-privacy {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
+
+		padding: 15px 10px;
+		border: 1px solid rgb(197, 196, 196);
+		box-sizing: border-box;
+		border-radius: 8px;
+		cursor: pointer;
+		background: white;
+		transition: 0.5s;
+
+		&:hover {
+			color: #1677ff;
+			border: 1px solid #1677ff;
+		}
+
+		.btn-left {
+			span {
+				margin-left: 15px;
+				font-weight: 500;
+			}
+		}
+
 		.status-icon {
 			margin-right: 5px;
 		}
