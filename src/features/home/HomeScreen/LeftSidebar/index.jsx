@@ -19,6 +19,7 @@ import FollowTheSignsIcon from "@mui/icons-material/FollowTheSigns";
 import BallotIcon from "@mui/icons-material/Ballot";
 import Profile from "features/home/pages/Profile";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import { Avatar } from "@mui/material";
 
 function LeftSidebar(props) {
 	const profile = props.profile;
@@ -42,7 +43,14 @@ function LeftSidebar(props) {
 		<div id="LeftSidebar">
 			<div className="btn-sider" onClick={goToProfile}>
 				<div className="avatar">
-					<img src={`http://localhost:8080/${profile.avatar}`} alt="" />
+					<Avatar
+						alt={profile.full_name.toUpperCase()}
+						src={`http://localhost:8080/${profile.avatar}`}
+						style={{
+							cursor: "pointer",
+							border: "1px solid #BDBDBD",
+						}}
+					/>
 				</div>
 				<div className="text">{profile.full_name}</div>
 			</div>
@@ -96,12 +104,12 @@ function LeftSidebar(props) {
 				<div className="text">Trang đã lưu</div>
 			</div>
 
-			<div className="btn-sider">
+			{/* <div className="btn-sider">
 				<div className="icon">
 					<FeedIcon sx={{ fontSize: 28, color: "#3399FF" }} />
 				</div>
 				<div className="text">Tin tức thường nhật</div>
-			</div>
+			</div> */}
 
 			<div className="btn-sider">
 				<div className="icon">

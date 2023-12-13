@@ -74,7 +74,7 @@ function News() {
 					<div className="other-card-img">
 						<img
 							src={
-								"http://localhost:8080/public/img/" +
+								"http://localhost:8080/" +
 								decodeURIComponent(item.image.path)
 							}
 							alt=""
@@ -122,7 +122,7 @@ function News() {
 									<div className="card-img">
 										<img
 											src={
-												"http://localhost:8080/public/img/" +
+												"http://localhost:8080/" +
 												decodeURIComponent(item.image.path)
 											}
 											alt=""

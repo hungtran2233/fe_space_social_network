@@ -1,0 +1,129 @@
+#FSAllFriend {
+	background: #ecf1f5;
+	padding: 25px;
+	min-height: 85vh;
+	max-height: 85vh;
+	overflow: hidden;
+
+	// Tool bar
+	.friend-top {
+		margin-bottom: 20px;
+		padding: 20px 30px;
+		background: white;
+		.title {
+			font-size: 16px;
+			font-weight: 500;
+			margin-bottom: 20px;
+			span {
+				&:nth-child(2) {
+					margin-left: 10px;
+					display: inline-block;
+					width: 20px;
+					height: 20px;
+					text-align: center;
+					line-height: 20px;
+					background-color: #8661fd;
+					border-radius: 50%;
+					color: white;
+					font-size: 15px;
+				}
+			}
+		}
+
+		.tool-bar {
+			display: flex;
+
+			.find-bar {
+				width: 40%;
+			}
+			.sort-bar {
+				width: 30%;
+				display: flex;
+				justify-content: center;
+			}
+
+			.filter-bar {
+				width: 30%;
+				display: flex;
+				justify-content: flex-end;
+			}
+		}
+	}
+
+	// Friend list
+	.container {
+		background: white;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 30px;
+		height: 60vh;
+		overflow-y: auto;
+
+		.col-box {
+			width: 25%;
+			padding: 0 10px;
+
+			.friend-block {
+				background: #fff;
+				border-radius: 8px;
+				display: inline-block;
+				padding: 25px 15px;
+				position: relative;
+				width: 100%;
+				margin-bottom: 20px;
+				border: 1px solid #d1cfcf;
+
+				.more-option {
+					position: absolute;
+					right: 15px;
+					top: 5px;
+					cursor: pointer;
+				}
+
+				.content {
+					display: flex;
+					align-items: center;
+
+					.avatar {
+						width: 40%;
+						cursor: pointer;
+					}
+
+					.friend-meta {
+						width: 60%;
+						padding: 10px 5px 10px 20px;
+
+						.info {
+							margin-bottom: 10px;
+							.user-full-name {
+								font-size: 16px;
+								font-weight: 500;
+								margin-bottom: 3px;
+								cursor: pointer;
+								transition: 0.3s;
+								&:hover {
+									color: #e44a3c;
+								}
+							}
+							.country {
+								font-size: 12px;
+								color: gray;
+							}
+						}
+
+						.btn-send-message {
+							color: #e44a3c;
+							font-size: 13px;
+							font-weight: 500;
+							cursor: pointer;
+
+							&:hover {
+								opacity: 0.8;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

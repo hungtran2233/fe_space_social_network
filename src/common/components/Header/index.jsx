@@ -303,7 +303,7 @@ function Header() {
 								placement="bottomLeft"
 							>
 								<Avatar
-									alt="Remy Sharp"
+									alt={profile.full_name.toUpperCase()}
 									src={`http://localhost:8080/${profile.avatar}`}
 									style={{
 										border: "2px solid #555555",

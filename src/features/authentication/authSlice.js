@@ -2,8 +2,6 @@ import { produce } from "immer";
 
 const initialState = {
 	profile: null,
-	friend: null,
-	friendInvitation: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -63,20 +61,6 @@ const reducer = (state = initialState, action) => {
 			});
 
 		//////////
-
-		// Friend
-
-		// Lấy tất cả bạn bè
-		case "auth/SET_FRIEND":
-			return produce(state, (draft) => {
-				draft.friend = action.payload;
-			});
-
-		// Lấy tất cả lời mời kết bạn
-		case "auth/SET_FRIEND_INVITATION":
-			return produce(state, (draft) => {
-				draft.friendInvitation = action.payload;
-			});
 
 		default:
 			return state;

@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import authReducer from "features/authentication/authSlice";
+import friendReducer from "features/friend/friendSlice";
 import postReducer from "features/home/postSlice";
 import newsReducer from "features/home/pages/News/services/newsSlice";
 import imageReducer from "features/image/imageSlice";
@@ -9,6 +10,7 @@ import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({
 	auth: authReducer,
+	friendStore: friendReducer,
 	postStore: postReducer,
 	newsStore: newsReducer,
 	imageStore: imageReducer,

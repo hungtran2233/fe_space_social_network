@@ -86,7 +86,7 @@ function MessageHome() {
 	// Thuộc tính của Menu Ant-design
 	const [collapsed, setCollapsed] = useState(false);
 	const [selectedUserItem, setSelectedUserItem] = useState("");
-	const [selectedTabs, setSelectedTabs] = useState("tab-2");
+	const [selectedTabs, setSelectedTabs] = useState("tab-1");
 	const [selectedGroupItem, setSelectedGroupItem] = useState("");
 
 	const {
@@ -374,7 +374,7 @@ function MessageHome() {
 								paddingLeft: 20,
 								fontWeight: "bold",
 							}}
-							defaultActiveKey="tab-2"
+							defaultActiveKey="tab-1"
 							items={arrItem}
 							onChange={handleOnChange}
 						/>

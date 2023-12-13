@@ -1,0 +1,100 @@
+#FSBlockList {
+	background: #ecf1f5;
+	padding: 25px;
+	min-height: 85vh;
+	max-height: 85vh;
+	overflow: hidden;
+
+	// title
+	.title {
+		font-size: 18px;
+		font-weight: bold;
+		margin-bottom: 15px;
+		background: white;
+		padding: 10px 30px;
+		border-radius: 5px;
+	}
+
+	// Friend list
+	.container {
+		background: white;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 30px;
+
+		height: 75vh;
+		overflow-y: auto;
+
+		.col-box {
+			width: 25%;
+			padding: 0 10px;
+
+			.friend-block {
+				background: #fff;
+				border-radius: 8px;
+				display: inline-block;
+				padding: 25px 15px;
+				position: relative;
+				width: 100%;
+				margin-bottom: 20px;
+				border: 1px solid #d1cfcf;
+
+				.content {
+					display: flex;
+					align-items: center;
+
+					.avatar {
+						width: 40%;
+						cursor: pointer;
+					}
+
+					.friend-meta {
+						width: 60%;
+						padding: 10px 5px 10px 20px;
+
+						.info {
+							margin-bottom: 10px;
+							.user-full-name {
+								font-size: 16px;
+								font-weight: 500;
+								margin-bottom: 3px;
+								cursor: pointer;
+								transition: 0.3s;
+								&:hover {
+									color: #e44a3c;
+								}
+							}
+							.country {
+								font-size: 12px;
+								color: gray;
+							}
+						}
+
+						.mutual-friend {
+							color: #a2a2a3;
+							font-size: 13px;
+							font-weight: 500;
+						}
+					}
+				}
+
+				// Button action
+				.option {
+					margin-top: 20px;
+					display: flex;
+					justify-content: space-between;
+
+					.btn-accepted {
+						display: block;
+						width: 100%;
+						text-align: center;
+						padding: 5px 10px;
+						border: 1px solid rgb(206, 205, 205);
+						border-radius: 6px;
+						color: #545454;
+					}
+				}
+			}
+		}
+	}
+}

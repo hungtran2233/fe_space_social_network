@@ -207,63 +207,63 @@ export const updateFavoritesAction = (valueInput) => {
 
 ///// END -- EDIT PROFILE
 
-// Lấy danh sách bạn bè
-export const fetchAllUserFriendAction = async (dispatch) => {
-	try {
-		const res = await instance.request({
-			url: "/friend-ship/show-all-friends",
-			method: "GET",
-		});
-		dispatch({
-			type: "auth/SET_FRIEND",
-			payload: res.data.content,
-		});
-	} catch (error) {
-		console.log(error);
-	}
-};
+// // Lấy danh sách bạn bè
+// export const fetchAllUserFriendAction = async (dispatch) => {
+// 	try {
+// 		const res = await instance.request({
+// 			url: "/friend-ship/show-all-friends",
+// 			method: "GET",
+// 		});
+// 		dispatch({
+// 			type: "auth/SET_FRIEND",
+// 			payload: res.data.content,
+// 		});
+// 	} catch (error) {
+// 		console.log(error);
+// 	}
+// };
 
-// Lấy tất cả lời mời kết bạn
-export const fetchAllInvitationAction = async (dispatch) => {
-	try {
-		const res = await instance.request({
-			url: "/friend-ship/show-all-invitation",
-			method: "GET",
-		});
-		// console.log(res);
-		dispatch({
-			type: "auth/SET_FRIEND_INVITATION",
-			payload: res.data.content,
-		});
-	} catch (error) {
-		console.log(error);
-	}
-};
+// // Lấy tất cả lời mời kết bạn
+// export const fetchAllInvitationAction = async (dispatch) => {
+// 	try {
+// 		const res = await instance.request({
+// 			url: "/friend-ship/show-all-invitation",
+// 			method: "GET",
+// 		});
+// 		// console.log(res);
+// 		dispatch({
+// 			type: "auth/SET_FRIEND_INVITATION",
+// 			payload: res.data.content,
+// 		});
+// 	} catch (error) {
+// 		console.log(error);
+// 	}
+// };
 
-// chấp nhận lời mời kết bạn
-export const acceptInvitationAction = (userId) => {
-	return async (dispatch) => {
-		try {
-			await instance.request({
-				url: `/friend-ship/update-friend-ship/${userId}`,
-				method: "PUT",
-			});
-		} catch (error) {
-			console.log(error);
-		}
-	};
-};
+// // chấp nhận lời mời kết bạn
+// export const acceptInvitationAction = (userId) => {
+// 	return async (dispatch) => {
+// 		try {
+// 			await instance.request({
+// 				url: `/friend-ship/update-friend-ship/${userId}`,
+// 				method: "PUT",
+// 			});
+// 		} catch (error) {
+// 			console.log(error);
+// 		}
+// 	};
+// };
 
-// xóa lời mời kết bạn
-export const deleteInvitationAction = (userId) => {
-	return async (dispatch) => {
-		try {
-			const res = await instance.request({
-				url: `/friend-ship/delete-friend-ship/${userId}`,
-				method: "DELETE",
-			});
-		} catch (error) {
-			console.log(error);
-		}
-	};
-};
+// // xóa lời mời kết bạn
+// export const deleteInvitationAction = (userId) => {
+// 	return async (dispatch) => {
+// 		try {
+// 			const res = await instance.request({
+// 				url: `/friend-ship/delete-friend-ship/${userId}`,
+// 				method: "DELETE",
+// 			});
+// 		} catch (error) {
+// 			console.log(error);
+// 		}
+// 	};
+// };

@@ -66,12 +66,9 @@
 			width: 50%;
 			padding: 15px 20px;
 			display: flex;
+			gap: 5px;
 			justify-content: flex-end;
 			align-items: center;
-
-			div {
-				margin-left: 5px;
-			}
 		}
 	}
 }

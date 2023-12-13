@@ -1,37 +1,55 @@
 import React, { useEffect } from "react";
 import { Col, Row, Spin } from "antd";
-import SidebarRight from "./components/SidebarRight";
+
 import { useDispatch, useSelector } from "react-redux";
-import News from "features/home/pages/News";
-import "./PostHome.scss";
-import {
-	fetchNewsAction,
-	fetchPostAction,
-	fetchProfileAction,
-} from "features/home/action";
-import LeftSidebar from "./components/LeftSidebar";
 
-function PostHome() {
+import "./PostContainer.scss";
+import { fetchAllPostAction, fetchPostAction } from "features/home/action";
+import CreatePost from "../Profile/components/ProfileContent/PHome/components/CreatePost";
+import SinglePost from "../Profile/components/ProfileContent/PHome/components/SinglePost";
+import UserPosts from "./components/UserPost";
+
+function PostContainer(props) {
+	const profile = props.profile;
 	const dispatch = useDispatch();
-	const profile = useSelector((state) => state.auth.profile);
+	const allPost = useSelector((state) => state.postStore.allPost);
 
-	const fetchPost = async () => {
-		dispatch(fetchPostAction);
+	////////////
+
+	// Lấy tất cả posts
+	const fetchAllPost = async () => {
+		dispatch(fetchAllPostAction);
 	};
 
 	useEffect(() => {
-		// fetchProfile();
-		fetchPost();
+		fetchAllPost();
 	}, []);
 
-	if (!profile)
+	if (!allPost)
 		return (
 			<div style={{ textAlign: "center" }}>
 				<Spin size="middle" />;
 			</div>
 		);
 
-	return <div id="Post"></div>;
+	// Render my post
+	const renderAllPost = (allPost) => {
+		if (allPost.length === 0) {
+			return <div className="not-content">Bạn không có bài viết nào</div>;
+		} else {
+			return allPost.map((post, index) => {
+				return <UserPosts post={post} profile={profile} key={index} />;
+			});
+		}
+	};
+	return (
+		<div id="PostContainer">
+			<div className="create-post-area">
+				<CreatePost profile={profile} />
+				{renderAllPost(allPost)}
+			</div>
+		</div>
+	);
 }
 
-export default PostHome;
+export default PostContainer;

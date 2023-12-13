@@ -2,7 +2,7 @@ import instance from "api/instance";
 import axios from "axios";
 
 // fetch all Post (lấy tất cả post của tất cả user)
-export const fetchPostAction = async (dispatch) => {
+export const fetchAllPostAction = async (dispatch) => {
 	try {
 		const res = await instance.request({
 			url: "/post/get-all-post",
@@ -45,7 +45,10 @@ export const fetchLikePostAction = (postId) => {
 					post_id: postId,
 				},
 			});
-			// return res.data.content;
+			dispatch({
+				type: "postStore/SET_MY_LIKE_FOR_POST",
+				payload: res.data.content,
+			});
 		} catch (error) {
 			console.log(error);
 		}

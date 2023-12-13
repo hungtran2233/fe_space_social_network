@@ -5,6 +5,7 @@ const initialState = {
 	otherUserPosts: [],
 	otherUserImageList: null,
 	friendShipStatus: null,
+	followStatus: null,
 	otherUserAllFriend: null,
 };
 

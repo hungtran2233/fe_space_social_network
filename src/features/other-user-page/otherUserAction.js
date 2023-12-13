@@ -38,6 +38,25 @@ export const fetchFriendShipStatusAction = (linkUrl) => {
 	};
 };
 
+// Check xem đã theo dõi đối phương hay chưa
+export const fetchFollowStatusAction = (linkUrl) => {
+	return async (dispatch) => {
+		try {
+			const res = await instance.request({
+				url: `/follow/check-follow/${linkUrl}`,
+				method: "GET",
+			});
+			console.log(res.data.content);
+			// dispatch({
+			// 	type: "otherUserStore/SET_FRIENDSHIP_STATUS",
+			// 	payload: res.data.content,
+			// });
+		} catch (error) {
+			console.log(error);
+		}
+	};
+};
+
 // Gửi lời mời kết bạn
 export const sendInvitationAction = (userId) => {
 	return async (dispatch) => {

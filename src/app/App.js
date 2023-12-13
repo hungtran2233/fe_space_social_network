@@ -13,10 +13,10 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { AuthRoute, PrivateRoute } from "./Guard";
 import { fetchProfileAction } from "features/authentication/action";
 import OtherUserProfile from "features/other-user-page/OtherUserProfile";
-import FriendPage from "common/components/child-components/FriendPage";
 import CreateNewsPage from "features/home/pages/News/components/CreateNewsPage";
 import HomeScreen from "features/home/HomeScreen";
 import NewsScreen from "features/home/pages/News/NewsScreen";
+import FriendScreen from "features/friend/FriendScreen";
 
 function App() {
 	const dispatch = useDispatch();
@@ -39,11 +39,12 @@ function App() {
 					exact
 				/>
 
-				{/* Page  news  */}
+				{/* Page  news (Thêm exact để đảm bảo đường dẫn chính xác) */}
 				<PrivateRoute
-					path="/news"
+					path="/news/"
 					component={NewsScreen}
 					redirectPath="/sign-in"
+					exact
 				/>
 
 				{/* Page create news  */}
@@ -78,7 +79,7 @@ function App() {
 				{/* // Trang bạn bè */}
 				<PrivateRoute
 					path="/friend-page"
-					component={FriendPage}
+					component={FriendScreen}
 					redirectPath="/sign-in"
 				/>
 

@@ -1,29 +1,22 @@
 import React, { useEffect, useState } from "react";
-import "./PFriend.scss";
-import { useDispatch, useSelector } from "react-redux";
-
-import { Input, Select, Space, Spin } from "antd";
-import {
-	ColumnHeightOutlined,
-	EllipsisOutlined,
-	SearchOutlined,
-} from "@ant-design/icons";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import "./FSAllFriend.scss";
+import { useDispatch } from "react-redux";
 import { fetchAllUserFriendAction } from "features/friend/friendAction";
+import { Col, Input, Row, Select, Space, Spin } from "antd";
+import { Avatar } from "@mui/material";
+import { SearchOutlined } from "@ant-design/icons";
+import { useHistory } from "react-router-dom";
 
-function PFriend() {
+function FSAllFriend() {
 	const dispatch = useDispatch();
 	const history = useHistory();
-	const friendList = useSelector((state) => state.friendStore.allFriends);
+	const [friendList, setFriendList] = useState(null);
 
-	// Lấy tất cả bạn bè
-	const fetchMyFriend = () => {
-		dispatch(fetchAllUserFriendAction);
+	// Call api lấy danh sách bạn bè
+	const fetchAllMyFriend = async () => {
+		const data = await dispatch(fetchAllUserFriendAction);
+		setFriendList(data);
 	};
-
-	useEffect(() => {
-		fetchMyFriend();
-	}, []);
 
 	// search bar
 	const [searchText, setSearchText] = useState("");
@@ -41,38 +34,9 @@ function PFriend() {
 		history.push(`/other-user/${linkUrl}`);
 	};
 
-	// render friendList
-	const renderFriendList = (friendList) => {
-		// Lọc danh sách bạn bè dựa trên giá trị của ô input
-		const filteredFriends = friendList.filter((friend) =>
-			friend.full_name.toLowerCase().includes(searchText.toLowerCase())
-		);
-
-		return filteredFriends.map((item, index) => {
-			return (
-				<div className="friend-item" key={index}>
-					<div
-						onClick={() => {
-							goToOtherUserPage(item.link_url);
-						}}
-						className="info"
-					>
-						<div className="avatar">
-							<img
-								src={`http://localhost:8080/${item.avatar}`}
-								alt="avatar"
-							/>
-						</div>
-						<div className="full-name">{item.full_name}</div>
-					</div>
-
-					<div className="option">
-						<EllipsisOutlined style={{ fontSize: 28, fontWeight: 500 }} />
-					</div>
-				</div>
-			);
-		});
-	};
+	useEffect(() => {
+		fetchAllMyFriend();
+	}, []);
 
 	if (!friendList)
 		return (
@@ -82,7 +46,7 @@ function PFriend() {
 		);
 
 	return (
-		<div id="PFriend">
+		<div id="FSAllFriend">
 			<div className="friend-top">
 				<div className="title">
 					<span className="">Bạn bè</span>
@@ -150,9 +114,54 @@ function PFriend() {
 					</div>
 				</div>
 			</div>
-			<div className="friend-content">{renderFriendList(friendList)}</div>
+
+			<div className="container">
+				{friendList.map((item, index) => {
+					return (
+						<div key={index} className="col-box">
+							<div className="friend-block">
+								<div className="more-option">
+									<i className="fa-solid fa-ellipsis fa-lg"></i>
+								</div>
+								<div className="content">
+									<div
+										className="avatar"
+										onClick={() => {
+											goToOtherUserPage(item.link_url);
+										}}
+									>
+										<Avatar
+											alt={item.full_name.toUpperCase()}
+											src={`http://localhost:8080/${item.avatar}`}
+											sx={{ width: 78, height: 78 }}
+										/>
+									</div>
+									<div className="friend-meta">
+										<div className="info">
+											<div
+												className="user-full-name"
+												onClick={() => {
+													goToOtherUserPage(item.link_url);
+												}}
+											>
+												{item.full_name}
+											</div>
+											<div className="country">
+												{item.country === null
+													? "Chưa có địa chỉ"
+													: item.country}
+											</div>
+										</div>
+										<div className="btn-send-message">Nhắn tin</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					);
+				})}
+			</div>
 		</div>
 	);
 }
 
-export default PFriend;
+export default FSAllFriend;

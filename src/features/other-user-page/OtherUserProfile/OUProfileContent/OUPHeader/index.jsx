@@ -13,6 +13,7 @@ import {
 	UserOutlined,
 } from "@ant-design/icons";
 import {
+	fetchFollowStatusAction,
 	fetchFriendShipStatusAction,
 	sendInvitationAction,
 } from "features/other-user-page/otherUserAction";
@@ -25,18 +26,26 @@ function OUPHeader(props) {
 	const friendShipStatus = useSelector(
 		(state) => state.otherUserStore.friendShipStatus
 	);
+	// Tình trạng follow của mình với đối phương
+	const followStatus = useSelector((state) => state.otherUserStore.followStatus);
 
 	// Lấy link url
 	const match = useRouteMatch();
 	const linkUrl = match.params.link;
 
-	// // Lấy thông tin về trạng thái mối quan hệ này
+	// // Lấy thông tin về trạng thái mối quan hệ bạn bè
 	const fetchFriendShipStatus = () => {
 		dispatch(fetchFriendShipStatusAction(linkUrl));
 	};
 
+	// Check follow - xem mình đã theo dõi người kia chưa
+	const fetchFollowStatus = () => {
+		dispatch(fetchFollowStatusAction(linkUrl));
+	};
+
 	useEffect(() => {
 		fetchFriendShipStatus();
+		fetchFollowStatus();
 	}, []);
 
 	if (friendShipStatus === null) {
@@ -47,7 +56,15 @@ function OUPHeader(props) {
 		);
 	}
 
-	//
+	// if (followStatus === null) {
+	// 	return (
+	// 		<div style={{ textAlign: "center" }}>
+	// 			<Spin size="middle" />;
+	// 		</div>
+	// 	);
+	// }
+
+	// Gửi lời mời kết bạn
 	const sendInvitation = () => {
 		const userId = otherUserInfo.user_id;
 		dispatch(sendInvitationAction(userId));
