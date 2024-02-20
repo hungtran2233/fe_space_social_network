@@ -55,15 +55,6 @@ function SignIn() {
 		} else {
 			// lưu profile vào redux
 			await dispatch(fetchProfileAction);
-			// alert("Đăng nhập thành công !");
-			// Swal.fire({
-			// 	position: "center",
-			// 	icon: "success",
-			// 	title: "Đăng nhập thành công !",
-			// 	text: "Let'go !",
-			// 	showConfirmButton: false,
-			// 	timer: 1500,
-			// });
 
 			// Xóa hết lỗi 401 authorization ở console
 			console.clear();

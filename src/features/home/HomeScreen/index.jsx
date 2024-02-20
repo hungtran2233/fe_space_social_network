@@ -7,7 +7,7 @@ import RightSidebar from "./RightSidebar";
 import News from "../pages/News";
 import PostContainer from "../pages/Post";
 
-function HomeScreen() {
+function HomeScreen(props) {
 	const dispatch = useDispatch();
 	const profile = useSelector((state) => state.auth.profile);
 
@@ -20,13 +20,14 @@ function HomeScreen() {
 
 	return (
 		<Row>
+			{/* {console.log(props.socket)} */}
 			<Col span={6}>
 				<LeftSidebar profile={profile} />
 			</Col>
 			<Col span={12} className="post-home-center">
 				<News />
 
-				<PostContainer profile={profile} />
+				<PostContainer profile={profile} socket={props.socket} />
 			</Col>
 			<Col span={6}>
 				<RightSidebar />

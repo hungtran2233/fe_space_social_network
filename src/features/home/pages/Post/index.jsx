@@ -8,6 +8,7 @@ import { fetchAllPostAction, fetchPostAction } from "features/home/action";
 import CreatePost from "../Profile/components/ProfileContent/PHome/components/CreatePost";
 import SinglePost from "../Profile/components/ProfileContent/PHome/components/SinglePost";
 import UserPosts from "./components/UserPost";
+import { socket } from "app/Socket";
 
 function PostContainer(props) {
 	const profile = props.profile;
@@ -45,7 +46,7 @@ function PostContainer(props) {
 	return (
 		<div id="PostContainer">
 			<div className="create-post-area">
-				<CreatePost profile={profile} />
+				<CreatePost profile={profile} socket={props.socket} />
 				{renderAllPost(allPost)}
 			</div>
 		</div>

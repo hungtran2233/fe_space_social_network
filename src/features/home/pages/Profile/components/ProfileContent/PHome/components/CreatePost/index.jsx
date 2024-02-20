@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CreatePost.scss";
 import { Avatar } from "@mui/material";
 import { Button, Input, Modal, message } from "antd";
@@ -22,6 +22,9 @@ const { TextArea } = Input;
 
 function CreatePost(props) {
 	const profile = props.profile;
+	const socket = props.socket;
+
+	///////
 	const dispatch = useDispatch();
 	///////////
 	const [valueContent, setValueContent] = useState("");
@@ -50,9 +53,16 @@ function CreatePost(props) {
 	};
 
 	const createPost = async () => {
-		await dispatch(
+		const newPostData = await dispatch(
 			createPostAction(valueContent, valuePrivacy, selectedFiles, valueVideoUrl)
 		);
+
+		// Notification
+		socket?.emit("createUserPost", {
+			senderId: Number(profile.user_id),
+			postId: Number(newPostData.post_id),
+			postPrivacyId: Number(newPostData.privacy_id),
+		});
 
 		// set lại value về rỗng
 		setValueContent("");
@@ -96,6 +106,8 @@ function CreatePost(props) {
 
 	return (
 		<div id="CreatePost">
+			{/* {console.log(socket)} */}
+
 			<div className="title-theme-public">
 				<div className="left"></div>
 				<div className="text">Tạo bài viết</div>

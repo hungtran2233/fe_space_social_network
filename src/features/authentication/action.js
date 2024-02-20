@@ -33,6 +33,10 @@ export const fetchProfileAction = async (dispatch) => {
 			type: "auth/SET_PROFILE",
 			payload: res.data.content,
 		});
+		localStorage.setItem("user_id", res.data.content.user_id);
+		localStorage.setItem("link_url", res.data.content.link_url);
+
+		return res.data.content.user_id;
 	} catch (error) {
 		// console.log(error);
 	}

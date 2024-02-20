@@ -120,6 +120,7 @@ export const createPostAction = (
 				}
 			);
 
+			return res.data.content;
 			console.log("Kết quả từ máy chủ:", res.data.content);
 		} catch (error) {
 			console.error("Lỗi khi gửi yêu cầu:", error);

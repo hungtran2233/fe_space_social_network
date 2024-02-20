@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import "./Header.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,7 +16,7 @@ import {
 	UserOutlined,
 } from "@ant-design/icons";
 import Swal from "sweetalert2";
-import { fetchProfileAction, logoutProfileAction } from "features/authentication/action";
+import { logoutProfileAction } from "features/authentication/action";
 import PersonIcon from "@mui/icons-material/Person";
 import HomeIcon from "@mui/icons-material/Home";
 import PhotoIcon from "@mui/icons-material/Photo";
@@ -24,10 +24,26 @@ import MessageIcon from "@mui/icons-material/Message";
 import PublicIcon from "@mui/icons-material/Public";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 
-function Header() {
+import { io } from "socket.io-client";
+import AddFriendNotification from "./components/AddFriendNotification";
+import AllEventNotification from "./components/AllEventNotification";
+
+function Header(props) {
 	const dispatch = useDispatch();
 	const history = useHistory();
 	const profile = useSelector((state) => state.auth.profile);
+	const socket = props.socket;
+
+	// Notification
+	const [notifications, setNotifications] = useState([]);
+	useEffect(() => {
+		socket?.on("getNotificationFromPost", (data) => {
+			setNotifications((prev) => [...prev, data]);
+		});
+	}, [socket]);
+
+	/////////////////////////////////
+
 	const goToHome = () => {
 		history.push("/");
 	};
@@ -55,6 +71,8 @@ function Header() {
 				// 1) Remove token localStorage
 				localStorage.removeItem("token");
 				localStorage.removeItem("login");
+				localStorage.removeItem("user_id");
+				localStorage.removeItem("link_url");
 
 				// 2) Set profile Store --> null
 				dispatch({
@@ -64,6 +82,9 @@ function Header() {
 
 				// 3) Call api đăng xuất
 				dispatch(logoutProfileAction);
+
+				// 4) Gọi socket --> "logout"
+				props.socket.emit("userLogout", props.socket.id);
 
 				// 4) Go home
 				setTimeout(goToHome, 2000);
@@ -99,60 +120,7 @@ function Header() {
 		);
 	};
 
-	// button Friend
-	const [openFriend, setOpenFriend] = useState(false);
-	const hideFriend = () => {
-		setOpenFriend(false);
-	};
-	const handleOpenChangeFriend = (newOpen) => {
-		setOpenFriend(newOpen);
-	};
-
-	// render content -- Friend
-	const renderContentFriend = () => {
-		return (
-			<div className="content-button-friend">
-				<div className="item-option">
-					<div className="text">Loan đã gửi lời mời kết bạn</div>
-				</div>
-				<div className="item-option">
-					<div className="text">Trung đã chấp nhận lời mời kết bạn</div>
-				</div>
-				<div className="item-option" onClick={logout}>
-					<div className="text">Bình đã gửi lời mời kết bạn</div>
-				</div>
-			</div>
-		);
-	};
-
 	///////////////
-	// button notification
-	const [openNotification, setOpenNotification] = useState(false);
-	const hideNotification = () => {
-		setOpenNotification(false);
-	};
-	const handleOpenChangeNotification = (newOpen) => {
-		setOpenNotification(newOpen);
-	};
-
-	// render content cho button User
-	const renderContentNotification = () => {
-		return (
-			<div className="content-button-notification">
-				<div className="item-option">
-					<div className="text">Duy đã thêm một ảnh mới</div>
-				</div>
-				<div className="item-option">
-					<div className="text">
-						Ánh đã trả lời một bình luận mà bạn được gắn thẻ
-					</div>
-				</div>
-				<div className="item-option" onClick={logout}>
-					<div className="text">Ngọc đã đăng bài viết mới</div>
-				</div>
-			</div>
-		);
-	};
 
 	// render user info
 	const renderUserInfo = () => {
@@ -239,58 +207,8 @@ function Header() {
 						{/* <NavLink to="/sign-in">Hi, {profile.full_name}</NavLink>
 						 */}
 						<div className="notification">
-							<Popover
-								content={renderContentFriend}
-								title="Bạn bè"
-								trigger="click"
-								open={openFriend}
-								onOpenChange={handleOpenChangeFriend}
-								placement="bottomLeft"
-							>
-								<div className="icon">
-									<Space>
-										<Badge
-											count={5}
-											offset={[10, -10]}
-											style={{
-												backgroundColor: "rgb(250, 173, 20)",
-												boxShadow: "none",
-											}}
-										>
-											<div className="n-friend">
-												<i className="fa-solid fa-user fa-lg"></i>
-											</div>
-										</Badge>
-									</Space>
-								</div>
-							</Popover>
-
-							{/* Notification  */}
-							<Popover
-								content={renderContentNotification}
-								title="Thông báo"
-								trigger="click"
-								open={openNotification}
-								onOpenChange={handleOpenChangeNotification}
-								placement="bottomLeft"
-							>
-								<div className="icon">
-									<Space>
-										<Badge
-											count={5}
-											offset={[10, -10]}
-											style={{
-												backgroundColor: "#764FFA",
-												boxShadow: "none",
-											}}
-										>
-											<div className="n-action">
-												<i className="fa-solid fa-bell fa-lg"></i>
-											</div>
-										</Badge>
-									</Space>
-								</div>
-							</Popover>
+							<AddFriendNotification />
+							<AllEventNotification socket={socket} />
 						</div>
 
 						<div className="user-box">
@@ -319,7 +237,16 @@ function Header() {
 		return <></>;
 	};
 
-	return <div id="Header">{renderUserInfo()}</div>;
+	return (
+		<div id="Header">
+			<>{renderUserInfo()}</>
+
+			{console.log(notifications)}
+
+			{/* <>{console.log(notifications)}</>
+			<>{JSON.stringify(notifications)}</> */}
+		</div>
+	);
 }
 
 export default Header;

@@ -25,11 +25,29 @@ const checkLogin = () => {
 	return false;
 };
 
-export const PrivateRoute = (props) => {
-	//component guard
-	const { path, component, redirectPath } = props;
+// export const PrivateRoute = (props) => {
+// 	//component guard
+// 	const { path, component, redirectPath } = props;
+// 	if (checkLogin()) {
+// 		return <Route path={path} component={component} />;
+// 	}
+// 	return <Redirect to={redirectPath} />;
+// };
+
+export const PrivateRoute = ({
+	path,
+	component: Component,
+	redirectPath,
+	additionalProps,
+	...rest
+}) => {
 	if (checkLogin()) {
-		return <Route path={path} component={component} />;
+		return (
+			<Route
+				path={path}
+				render={(props) => <Component {...props} {...additionalProps} />}
+			/>
+		);
 	}
 	return <Redirect to={redirectPath} />;
 };

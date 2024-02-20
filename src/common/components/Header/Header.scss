@@ -12,6 +12,14 @@
 	width: 100%;
 	// height: 60px;
 
+	// khoảng margin-bottom để tránh nội dung bị header đè
+	&::before {
+		content: "";
+		display: block;
+		height: 60px; /* Điều chỉnh chiều cao theo chiều cao của Header */
+		margin-bottom: -60px; /* Đảm bảo phần tử giả không chiếm diện tích trên trang */
+	}
+
 	.navbar-left {
 		width: 40%;
 		color: white;
